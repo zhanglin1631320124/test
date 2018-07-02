@@ -1,0 +1,198 @@
+﻿/**user-index.htm**/
+.userInfo 
+{
+	float:left; width:540px;
+	}
+.orderStatistics
+{
+	float:left; width:180px; margin-left:10px;*width:170px; margin-top:10px;background-color:#F5F5F5; border: 1px #E6E6E6 solid; padding:8px; overflow:hidden;
+}
+.orderStatistics .title
+{
+	 color:#A40102; font-weight:bold;
+}
+.orderStatistics ul
+{
+	margin-top:10px;
+}
+ .orderStatistics ul li
+{
+	  width:265px; float:left; line-height:25px;
+}
+ .orderStatistics ul li span
+{
+	   color:#A40102; font-weight:bold;
+}
+.userInfo .splitLine
+{
+	 border-top:dashed 1px #E6E6E6;  height:1px; overflow:hidden;
+	}
+.userInfo .welcome
+{
+	font-size:15px; font-weight:bold;  margin-top:10px;
+}
+.userInfo .welcome span
+{
+	 color:#A40102;
+}
+.userInfo .loginDate
+{
+	 line-height:20px; 
+}
+.userInfo .loginDate a
+{
+	 color:#A40102; font-weight:bold;
+}
+.userInfo .statistics
+{
+	  overflow:hidden; padding-left:10px;
+}
+.userInfo .statistics li
+{
+	  width:265px; float:left; line-height:25px;
+}
+.userInfo .statistics li span
+{
+	   color:#A40102; font-weight:bold;
+}
+.userTitle
+{
+	  background-image:url(images/titleBg.png);  height:28px; line-height:28px; font-size:13px; font-weight:bold; padding-left:10px;
+}
+/**login.htm**/
+.main .loginTitle
+{
+	color:#A10000; font-weight:700; width:100%; padding-left:400px; margin-top:30px; margin-bottom:30px; font-size:15px;
+}
+.main .alertMessage
+{
+	color:#FF0000; font-weight:700; width:958px; text-align:center;  margin-top:30px; margin-bottom:30px; font-size:14px; background-color:#F5F5F5; height:28px; line-height:28px; border:#E6E6E6 1px solid;
+}
+.main .login .left
+{
+	padding-left:220px;	
+}
+.main .login a,.main .register a
+{
+	color:#A10000;
+} 
+.main .register .left
+{
+	padding-left:150px;	
+}
+.main .register span,.main .login span,.main .add span
+{
+	color:#A10000;
+} 
+.main .openLogin 
+{
+	padding-left:220px;	
+}
+.main .openLogin .tips
+{
+	color:#4C5A62; font-size:13px; font-weight:bold;
+}
+.main .openLogin a
+{
+	  margin-right:10px;
+}
+.main .openLogin a img
+{
+	 vertical-align:middle;
+}
+.main .openLogin a span
+{
+	color:#4C5A62; line-height:16px;
+}
+/**UserAdd.htm**/
+.line
+{
+	border-top:1px solid #e3e3e3;
+}
+.add .left .userPhoto
+{
+	 width:70px; height:70px; display:block; border:#E3E3E3 1px solid; margin:auto;
+}
+/**userFriend.htm**/
+.userBlock
+{
+	width:100%;
+}
+.userBlock .userBox
+{
+	width:110px; height:140px; float:left; margin-left:12px; line-height:25px; text-align:center;
+}
+.userBlock .userBox .photo
+{
+	width:110px; height:110px;border:#E6E6E6 1px solid; text-align:left;
+}
+.userBlock .userBox .userNote
+{
+	width:100px; overflow:hidden
+}
+/**message.htm**/
+.userMenu 
+{
+	 padding-left:20px;
+	}
+.userMenu li
+{
+	float:left;
+}
+.userMenu li a
+{
+	float:left; width:auto; font-weight:bold; font-size:13px; background-color:#F5F5F5; display:block; margin-left:10px; padding:5px; text-align:center;
+}
+.userMenu .on a
+{
+	 color:#fff; background-color:#982929;
+}
+.sendMsg
+{
+	float:left; width:550px;
+}
+.sendMsg dl
+{
+	 display:block; min-height:30px;
+}
+.sendMsg dl dt
+{
+	float:left; width:80px; text-align:center; display:inline-block;
+}
+.sendMsg dl dd
+{
+	float:left; width:470px; 
+}
+.sendMsg dl dd .button
+{
+	 margin-top:10px;
+}
+.friendSide
+{
+	float:left; width:200px; 
+}
+.friendSide dl dd
+{
+	height:300px; overflow:hidden; y-overflow:auto;  border:1px #D1D1D1 solid; padding-left:5px; padding-right:5px; width:188px;
+}
+.friendSide dl dd a
+{
+	width:188px; line-height:20px; display:block; margin-top:3px;
+}
+.friendSide dl dd a.on
+{
+	background-color:#C8C8C8;
+}
+/**orderDetail.html**/
+.right .checkOut ul
+{ 
+	line-height:24px; height:24px; margin:0px; padding:0px;  overflow:visible;
+	}
+.right .checkOut ul li,.right .checkOut ul .right
+{
+	line-height:24px; height:24px; margin:0px; padding:0px;  overflow:visible;
+}
+.right .checkOutTitle
+{
+	font-weight:bold; color:#4C5A62; font-size:15px; margin-top:20px;
+	}

@@ -1,0 +1,779 @@
+/**default.htm**/
+.productBox{
+	width:100%; text-align:center; float:left;
+}
+.productPicture{
+	float:left; line-height:22px; width:130px; text-align:center; padding: 10px;
+}
+.productPicture .photo{
+	 width:120px; height:120px; border:1px #E6E6E6 solid; margin-left:5px; text-align:left;
+}
+.productPicture .maketPrice{
+	 text-decoration:line-through; color:#999999
+}
+.productPicture .salePrice{
+	 color:#A10000
+}
+.defaultRightAd{
+	 text-align:left;	
+}
+.defaultRightAd img {
+	float:left; width:238px; margin-left:10px; border:1px #E6E6E6 solid;	
+}
+.right .bigBanner{
+	 float:left;
+}
+.right .news{
+	 float:right;
+}
+.right .box .boxMain .more{
+	 text-align:right;float:right; margin-right:15px;
+}
+.productTitle
+{
+	  background-image:url(images/titleBg.png);  height:28px; line-height:28px; font-size:13px; font-weight:bold; padding-left:10px;background-repeat:repeat-x;
+}
+.productTitle .productText
+{
+	 float:left;
+}
+.productTitle .productMore
+{
+	 float:right; padding-right:10px;
+}
+.productTitle .productMore a
+{
+	 font-weight:normal;
+}
+.link {
+	width: 960px;border-top: #E6E6E6 1px solid; border-bottom: #E6E6E6 1px solid;  overflow:hidden; 
+}
+.link .linkHead {
+	padding-left: 8px; font-weight: bold; font-size: 12px;  float: left;width: 950px; line-height: 22px;  height: 22px
+}
+.link ul {
+	 padding-left: 20px; float: left; padding-bottom: 2px; width: 954px; padding-top:2px; 
+}
+.link ul li {
+	float: left; line-height: 31px; text-align: center; width:88px; overflow:hidden; height:31px;border: #eee 1px solid;  margin-right:5px;
+}
+.link ul li img  a{
+	width: 88px; height: 31px
+}
+.link .textLink li {
+	  line-height:22px; height:22px;
+}
+
+/**brand.htm**/
+.main .brand
+{
+	position:relative;	left:-5px;
+}
+.main .brand ul
+{
+	  float:left; margin-left:10px; width:180px; *width:175px;  border:#EFEFEF 1px solid; margin-bottom:10px;overflow:hidden; height:80px; padding-top:8px;text-align:center; 
+}
+.main .brand ul li
+{
+	  line-height:25px;text-align:center;  margin-left:20px;
+}
+.main .brand ul li .brandPhoto
+{
+	  text-align:left; width:138px; height:47px; line-height:47px; display:block;
+}
+
+
+/**brandDetail.htm**/
+.right .brandTitle li {
+	 float:left;  line-height:25px;
+}
+.right .brandTitle li strong {
+	 font-weight:bold; color:#A00200; 
+}
+.right .brandTitle .photo {
+	width:160px; height:100px; border:#EFEFEF 1px solid; text-align:center; padding-top:20px;
+}
+.right .brandTitle .content {
+	width:560px; margin-left:20px;
+}
+.right .redLine {
+	 height:2px; line-height:2px; overflow:hidden; background-color:#A00200; width:100%;
+}
+.right .brandContent {
+	  line-height:22px;
+}
+
+/**Product.htm**/
+.position span
+{
+	 color:#A10000; font-size:14px; font-weight:bold;
+}
+.topSearch 
+{
+	 border:#E6E6E6 1px solid; 
+}
+.topSearch .title
+{
+	background-color:#F5F5F5; font-weight: bold;
+}
+.topSearch li
+{
+	line-height:25px;padding:2px 10px 2px 10px;
+}
+.topSearch li a
+{
+	 margin-right:10px;
+}
+.productPannel
+{
+	 background-color:#E6EAF3; line-height:25px; height:25px;padding:1px 10px 1px 10px;
+	}
+.productPannel img
+{
+	 vertical-align:text-bottom; cursor:pointer; margin-right:5px;
+}
+.productPannel .right
+{
+	   float:none; margin-left:30px;
+}
+.productPannel span a
+{
+	  margin-left:8px; 
+}
+.productList
+{
+	height:130px; width:750px; margin-top:10px; line-height:23px;
+}
+.productList ul
+{
+	float:left;height:130px; text-align:left	
+}
+.productList .productLeft
+{
+	 width:150px;
+}
+.productList .productCenter
+{
+	 width:450px;
+}
+.productList .productRight
+{
+	 width:150px; text-align:center; line-height:28px;
+}
+.productList .photo{
+	 width:120px; height:120px; border:1px #E6E6E6 solid; margin-left:5px; text-align:left;
+}
+.productList .productName
+{
+	  font-size:15px; font-weight:800;
+}
+.productList .maketPrice{
+	 text-decoration:line-through; color:#999999; margin-top:15px;
+}
+.productList .salePrice{
+	 color:#A10000; font-weight:bold; font-size:13px
+}
+.productBox .line
+{
+	height:1px; width:750px; background-color:#E6E6E6; overflow:hidden;
+	}
+.productList .productCenter .point,.productList .productCenter .commentCount
+{
+	    color:#A10000; font-size:15px; font-weight:bold;
+}
+ .grade {
+	width:75px;
+	height:15px;	
+	display:inline-block;
+	background:url(images/grade.png) repeat-x;
+	margin-top:5px;
+}
+.grade i {
+	display:block;
+	height:15px;
+	width:50%;
+	background:url(images/grade.png) left -15px repeat-x;
+}
+/**help.htm**/
+.helpTitle
+{
+	color:#A10000; font-weight:bold; font-size:14px;
+}
+.helpContent
+{
+	 line-height:22px; margin-left:10px;
+}
+/**productDetail.htm**/
+.right .productPhoto
+{
+	float:left;
+}
+.right .bigPhoto
+{
+	width:340px; height:340px; border:#E6E6E6 1px solid; padding:2px;
+}
+.photoList {
+	height:54px;  margin-top:10px; overflow:hidden; width:340px; padding-left:6px; 
+}
+.photoListLeft {
+	float:left;
+	width:14px;
+	height:54px;
+	background:url(images/goodsPhoto_bg.gif) left center no-repeat;
+}
+.photoListContent {
+	float:left;
+	height:54px;
+	width:300px;
+	overflow:hidden;
+}
+.photoListInner {
+	width:10000px;
+	white-space:nowrap;
+}
+.photoListContent a {
+	width:50px;
+	height:50px;
+	display:inline-block;
+	margin:0 2px;
+	padding:1px;
+	border:1px solid #C9CACA;
+	overflow:hidden;
+}
+#PhotoList1,#PhotoList2 {
+ background:#fff;
+}
+* html .photoListContent a {
+	margin:0 5px;
+}
+*+html .photoListContent a {
+	margin:0 5px;
+}
+.photoListContent a:hover {
+	padding:0;
+	border:2px solid #669;
+	overflow:hidden;
+}
+.photoListRight {
+	float:left;
+	width:14px;	
+	height:54px;
+	background:url(images/goodsPhoto_bg.gif) right center no-repeat;
+}
+.photoListLeft p,.photoListRight p {
+	position:relative;
+	top:20px;
+	width:14px;
+	height:13px;
+	cursor:pointer;
+}
+
+.right .productInfo
+{
+	 line-height:25px; margin-left:20px; width:384px;float:left;
+}
+.right .productInfo .name
+{
+	  color:#4C5A62; font-size:16px; font-weight:bold;
+}
+.right .productInfo .point,.right .productInfo .commentCount
+{
+	    color:#A10000; font-size:15px; font-weight:bold;
+}
+.right .productInfo .maketPrice
+{
+	   text-decoration:line-through;
+}
+.right .productInfo .salePrice
+{
+	   color:#A10000; font-size:20px; font-weight:bold;
+}
+.right .productInfo .buy
+{
+	    background-color:#E6EAF3; border:#E6E6E6 1px solid; padding:5px 8px 5px 60px;
+}
+.right .productInfo .buy div
+{
+	    line-height:40px; height:40px; 
+}
+.right .productInfo .buy input
+{
+	    margin-right:10px;
+}
+.right .productInfo .buy a
+{
+	    margin-left:15px;
+}
+.right .productInfo .count
+{
+	    width:30px; height:15px;
+}
+.right .productInfo .border1
+{
+	   line-height:1px; height:1px; width:100%; clear:both; background-color:#CCCCCC; overflow:hidden;
+}
+.right .productInfo .standard
+{
+	   padding-left:20px;
+}
+.right .productInfo .standard .standardBlock
+{
+	   line-height:25px; width:25px;  height:25px; display:block; margin-left:5px; float:left; cursor:pointer; border:#CCCCCC 1px solid; text-align:center; color:#A10000; font-weight:bold; padding:0px;
+}
+.right .productInfo .standard .multiStandardBlock
+{
+	   line-height:30px; width:auto;  height:30px; display:block; margin-left:5px; float:left; cursor:pointer; border:#CCCCCC 1px solid; text-align:center; color:#A10000; font-weight:bold; padding:0 5px 0 5px; font-size:13px; font-weight:600;
+}
+.right .productAccessory li
+{
+	float:left;  margin-left:22px; text-align:center; line-height:22px; width:122px; overflow:hidden
+}
+.right .productAccessory li .photo
+{
+	width:120px; height:120px; border:#CCCCCC 1px solid;  display:block; text-align:left; overflow:hidden;
+}
+.right .productDetailTitle
+{
+	 height:2px; line-height:2px; background-color:#66000E ;overflow:hidden;
+}
+.right .productPageTag
+{
+	height:23px;
+	}
+	.right .productPageTag li
+{
+	 margin-left:6px; font-weight:800; font-size:13px;  width:72px; float:left; text-align:center; height:23px; line-height:23px;
+	}
+.right .productPageTag .productOn
+{
+	  background-image:url(images/pageTagOn.png); color:#fff ;
+}
+.right .productPageTag .productOff
+{
+	  background-image:url(images/pageTagOff.png);  cursor:pointer;
+}
+.right .productIntroduce .productAttribute
+{
+	 background-color:#F6F6F6; border:#DDDDDD 1px solid; overflow:hidden; padding:3px 10px 3px 10px;
+}
+.right .productIntroduce .productAttribute li
+{
+	  float:left; width:33%; line-height:25px;
+}
+.right .productIntroduce .productContent
+{
+	 line-height:22px;
+}
+.right .productTag a
+{
+	margin-right:10px;
+}
+.right .productCommentTitle
+{
+	  background-image:url(images/titleBg.png);  height:28px; line-height:28px; font-size:13px; font-weight:bold; padding-left:10px;
+}
+.right .productComment
+{
+	width:750px; height:80px;
+}
+.right .productComment .userInfo
+{
+	width:120px; float:left; text-align:center;
+}
+.right .productComment .userInfo li
+{
+	 line-height:22px;
+}
+.right .productComment .userInfo .photo
+{
+	width:70px; height:70px; border:#DDDDDD 1px solid; margin-left:25px; text-align:left;
+}
+.right .productComment .userInfo .name
+{
+	 font-weight:800;
+}
+.right .productComment .commentContent
+{
+	  width:630px; overflow:hidden; line-height:22px;
+}
+.right .productComment .commentContent .name
+{
+	 font-weight:800;
+}
+.right .productComment .commentContent .adminReplyContent
+{
+	 border:#A10000 1px dashed; padding:3px; 
+}
+.right .productComment .commentContent .name strong
+{
+	 font-weight:800; color:#A10000
+}
+.right .productComment .commentContent .name span
+{
+	  float:right; font-weight:500; margin-right:10px;
+}
+.right .productComment .commentContent .border1
+{
+	  height:1px; line-height:1px; border-top:1px #ddd dashed; margin:3px 0 3px 0; overflow:hidden;
+}
+.right .postComment
+{
+	border:#DDDDDD 1px solid;  padding:10px;
+}
+.right .postComment li
+{
+	 line-height:25px;
+}
+.right .postComment .title input
+{
+	  width:450px;
+}
+.right .postComment textarea
+{
+	  width:700px; height:60px;
+}
+.body {
+	background-image:url(text.txt); /* for IE6 */
+	background-attachment:fixed;
+}
+.toTop 
+{
+	background-color:#096;
+	z-index:999;
+	position:fixed;
+	bottom:20px;
+	right:20px;
+	_position:absolute; /* for IE6 */
+	_top: expression(documentElement.scrollTop + documentElement.clientHeight-this.offsetHeight-20); /* for IE6 */
+	overflow:visible;
+}
+.jiathis
+{
+	margin-top:20px;
+	}
+/**Activity.htm**/
+.todayActivity
+{
+	 width:300px; border:#DDDDDD 1px solid; height:150px; overflow:hidden; background-color:#F5F5F5;
+	}
+.todayActivity ul
+{
+	 text-align:center; line-height:25px; 
+	}
+.todayActivity .title
+{
+	 font-size:15px; font-weight:800;padding-top:20px;
+	}
+.todayActivity .date
+{
+	 font-size:15px; font-weight:800;
+	}
+.todayActivity .date
+{
+	 color:#66000E;font-size:18px;
+}
+.todayActivity .oldTitle
+{
+	 font-size:13px; font-weight:800; text-align:left;padding-top:3px;padding-left:20px;
+	}
+.todayActivity .list
+{
+	  text-align:left; line-height:20px; padding-left:20px;
+}
+.todayActivity .more
+{
+	 width:300px;  padding-left:235px
+	}
+.activityPlungs
+{
+	width:650px; 
+	}
+.giftPack
+{
+	width:450px; float:left; margin:15px; *margin:10px;
+}
+.giftPack .photo
+{
+	float:left; width:150px;overflow:hidden;  border:#DDDDDD 1px solid; height:60px; padding:2px
+}
+.giftPack .info
+{
+	float:left; width:280px; overflow:hidden; margin-left:10px; line-height:22px;
+}
+.giftPack .info .title
+{
+	 font-size:14px; font-weight:bold;
+}
+.giftPack .info .time
+{
+	 color:#999999;
+}
+.giftPack .info li span
+{
+	  color:#A10000; font-weight:bold; font-size:14px;
+}
+.themeActivity 
+{
+	width:300px; float:left; margin:10px; *margin:7px; line-height:22px; 
+}
+.themeActivity .photo
+{
+	width:300px; height:150px;overflow:hidden;  border:#DDDDDD 1px solid;
+}
+.themeActivity .name
+{
+	width:300px; font-size:12px; font-weight:bold; text-align:center; line-height:30px;
+}
+.activityTitle
+{
+	  background-image:url(images/titleBg.png);  height:28px; line-height:28px; font-size:13px; font-weight:bold; padding-left:10px;
+}
+
+.activityList .activityMain
+{
+	 font-size:12px;  width:320px; display:block;overflow:hidden; float:left; height:70px;
+}
+.activityList .activityMain li
+{
+	  float:left; line-height:22px; text-align:center;
+}
+.activityList .activityMain .name
+{
+	   width:240px;text-align:left; margin-left:10px;
+}
+.activityList .activityMain .name a
+{
+	   font-weight:bold; font-size:14px; color:#A40102
+}
+.activityList .activityMain .photo
+{
+	   width:60px; height:60px ;border:#DDDDDD 1px solid;
+}
+/**cart.htm**/
+.step
+{
+	width:100%; text-align:center; margin:20px 0 30px 0px;
+	}
+
+.cartHead
+{
+	background-color:#F5F5F5;height:30px; line-height:30px;
+	}	
+.cartHead td
+{
+	font-weight:bold; font-size:13px;  text-align:center;
+}
+.cartMain td
+{
+	text-align:center;   border-bottom:#DDDDDD 1px solid; padding-bottom:8px; padding-top:8px;
+}	
+.cartMain td input
+{
+	 width:30px;
+}	
+.cartMain .photo a
+{
+	   border:#E6E6E6 1px solid;  padding:1px; overflow:hidden; display:block; width:60px; height:60px;
+}
+.cartMain .smallBox
+{	  
+	border:#E6E6E6 1px dashed; overflow:hidden;background-color:#fafafa; margin-top:5px; line-height:32px; width:auto;
+}
+.totalMoney
+{
+	font-size:15px; font-weight:bold; text-align:right; padding-right:10px;
+	}
+.totalMoney span
+{
+	 color:#A40102
+	}
+.cartOperate .bigbutton
+{
+	 float:right; margin-right:10px;	
+}
+.cartOperate img
+{
+	 vertical-align:middle
+	}
+.cartOperate a
+{
+	  margin-right:20px;
+	}
+/**checkOut.htm**/
+.checkOutTitle
+{
+	font-weight:bold; color:#4C5A62; font-size:15px; margin-top:20px;
+	}
+.checkOutLine
+{
+	height:1px; line-height:1px; background-color:#DDDDDD; width:100%; margin-top:10px; margin-bottom:10px; overflow:hidden;
+	}
+
+.checkOut ul .left {
+	width: 180px;
+	font-weight: 500;
+}
+.checkOut ul .right {
+	width: auto;
+	padding-left: 10px;
+	margin-left: -1px;
+	overflow:hidden;
+	line-height:30px;
+}
+.checkOutList
+{
+	 padding-left:50px;
+}
+.checkOutList li
+{
+	line-height:25px; 
+}
+.checkOutList li span
+{
+	margin-left:20px;
+}
+.checkOut .right span,.checkOut .right a
+{
+	color:#A40102; font-weight:600;
+}
+.giftList
+{
+	float:left; width:100%; margin-left:100px;
+}
+.giftList .giftInfo
+{
+	width:150px; text-align:center; float:left; line-height:25px;
+}
+.mony
+{
+	text-align:right;
+}
+.mony span
+{
+	color:#A40102; font-weight:800; font-size:16px;
+}
+.main .finishButton
+{
+	width:960px; text-align:center; margin-bottom:80px;
+}
+/**article.htm**/
+.newsList {
+	padding-right: 0px;  float: left; width:100%; display:block;
+}
+.newsList li{
+	color:#565656; line-height:22px; margin:4px 0 4px 0;
+}
+.newsList li a{
+	color:#565656; line-height:22px; text-decoration:none;
+}
+.newsList .newsTitle a{
+	font-size:13px; color:#A10000; font-weight:800;
+}
+.newsList .newsTitle span{
+	 float:right;
+}
+.newsLine{
+	  background-color:#E6E6E6; width:100%; float:left;  height:1px; overflow:hidden; margin:3px;
+}
+/**articleDetail.htm**/
+.right .articleTitle
+{
+	font-size:16px; font-weight:bold; text-align:center;color:#A10000; line-height:35px;
+	}
+.right .articleTime{
+	line-height:28px; border-top:1px #EEEEEE solid; border-bottom:1px #EEEEEE solid; text-align:center; margin-top:10px;
+}
+.right .articleTime span{
+	 padding:0px 15px 0px 15px;
+}
+.right .articleContent{
+	line-height:22px; padding:15px 20px 15px 20px;
+}
+/**themeActivityDetail.htm**/
+.themeActivityTop
+{
+	width:100%;
+	}
+.themeActivityMiddle
+{
+	width:100%; background-repeat:repeat; height:auto; padding:10px; margin:auto; overflow:hidden;
+	}
+.themeActivityMiddle .blockPhoto
+{
+	width:100%; margin:auto; clear:both;
+}
+.themeActivityMiddle .productBlock
+{
+	width:100%;  height:auto;margin-top:10px; clear:both; padding-left:20px;
+}
+.themeActivityMiddle .blockMore
+{
+	width:100%; margin-top:10px; clear:both; text-align:right; 
+}
+.themeActivityMiddle .blockMore a
+{
+	 margin-right:20px;
+}
+	
+.themeActivityBottom
+{
+	width:100%;
+	}
+/**favorableActivity.html**/
+.favorableActivityList {
+	padding-right: 0px;  float: left; width:100%; display:block; height:130px;
+}
+.favorableActivityList .photo{
+	width:300px; height:120px;overflow:hidden;  border:#DDDDDD 1px solid; float:left;
+}
+.favorableActivityList .info{
+	 float:left; margin-left:10px;
+}
+.favorableActivityList .info li{
+	color:#565656; line-height:22px; margin:4px 0 4px 0;
+}
+.favorableActivityList .info li a{
+	color:#565656; line-height:22px; text-decoration:none;
+}
+.favorableActivityList .info .name a{
+	font-size:13px; color:#A10000; font-weight:800;
+}
+/**favorableActivityDetail.html**/
+.favorableActivityTitle
+{
+	font-size:16px; color:#A10000; font-weight:800; text-align:center;
+	}
+.favorableActivityDetail ul .left
+{
+	width:200px;
+	}
+.favorableActivityDetail ul .right .gift
+{
+	width:100px; float:left; margin-right:5px; display:block;  height:130px;
+	}
+.favorableActivityDetail ul .right .gift .name
+{
+	line-height:25px;display:block; height:25px; width:100px; text-align:center;
+	}
+.favorableActivityDetail ul .right .gift .photo
+{
+	 display:block; width:100px; overflow:hidden;  float:left;
+}
+/**giftPackDetail.htm**/
+.giftPackName
+{
+	font-size:16px; color:#A10000; font-weight:800; text-align:center;
+}
+.giftPackTime
+{
+	text-align:center; line-height:23px;
+}
+.giftPackPrice
+{
+	font-size:13px; color:#A10000; text-align:center;line-height:22px;
+}
+.giftPackBlock
+{
+	 background-color:#E6EAF3; overflow:hidden; padding:5px;
+}
+

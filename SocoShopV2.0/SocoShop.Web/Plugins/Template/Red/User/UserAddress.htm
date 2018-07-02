@@ -1,0 +1,88 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+    <script language="javascript" type="text/javascript" src="/Admin/Js/Calendar.js" ></script>
+    <script language="javascript" type="text/javascript" src="/Admin/Js/UnlimitClass.js" ></script>
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/UserAddress.js" ></script>
+</head>
+<body>
+    <html:include file="Top.htm" />    
+    <div class="main">
+        <form action="/User/UserAddress.aspx" method="post" name="form" >
+        <input type="hidden" class="input"  name="ID" value="<$userAddress.ID$>"/>
+        <div class="left">       
+            <html:include file="/User/UserLeft.htm" />          
+        </div>
+        <div class="right">   
+            <div>用户中心 > 地址簿</div>
+            <div class="height10"></div>
+            <div class="userTitle">地址列表</div>
+            <div class="height10"></div>
+            <table class="listTable" cellpadding="0" cellpadding="0">
+                <tr class="listTableHead">
+                    <td>收货人</td>
+                    <td>移动电话</td>
+                    <td>固定电话</td>
+                    <td>邮编</td>
+                    <td>详细地址</td>
+                    <td>默认</td>
+                    <td>操作</td>
+                </tr>
+                <html:foreach expression="UserAddressInfo tempUserAddress in userAddressList">
+                <tr class="listTableMain">
+                    <td><$tempUserAddress.Consignee$></td>
+                    <td><$tempUserAddress.Mobile$></td>
+                    <td><$tempUserAddress.Tel$></td>
+                    <td><$tempUserAddress.ZipCode$></td>
+                    <td>[<$RegionBLL.RegionNameList(tempUserAddress.RegionID)$> ] <$tempUserAddress.Address$></td>
+                    <td><$ShopCommon.GetBoolString(tempUserAddress.IsDefault)$></td>
+                    <td><a href="UserAddress.aspx?Action=Update&ID=<$tempUserAddress.ID$>">修改</a>  <a href="?Action=Delete&ID=<$tempUserAddress.ID$>" onclick="return deleteRecord(this);">删除</a></td>
+                </tr>
+                </html:foreach>
+            </table>  
+            <div class="height10"></div>      
+            <div class="add">
+                <ul>
+                    <li class="left">默认：</li>
+                    <li class="right"><input type="radio" name="IsDefault" value="0" <html:if expression="userAddress.IsDefault==0">checked="checked"</html:if> />否<input type="radio" name="IsDefault" value="1" <html:if expression="userAddress.IsDefault==1">checked="checked"</html:if>/>是</li>
+                </ul>
+                <ul>
+                    <li class="left">收货人：</li>
+                    <li class="right"><input type="text" class="input" style="width:300px" name="Consignee" id="Consignee" value="<$userAddress.Consignee$>"/> <span>*</span></li>
+                </ul>  
+                 <ul>
+                    <li class="left">邮编：</li>
+                    <li class="right"><input type="text" class="input" style="width:300px" name="ZipCode" id="ZipCode" value="<$userAddress.ZipCode$>"/> <span>*</span></li>
+                </ul> 
+                <ul>
+                    <li class="left">固定电话：</li>
+                    <li class="right"><input type="text" class="input" style="width:300px" name="Tel" id="Tel" value="<$userAddress.Tel$>"/></li>
+                </ul> 
+                <ul>
+                    <li class="left">移动电话：</li>
+                    <li class="right"><input type="text" class="input" style="width:300px" name="Mobile" id="Mobile" value="<$userAddress.Mobile$>" /></li>
+                </ul> 
+                <ul>
+                    <li class="left">所在地区：</li>
+                    <li class="right"><$singleUnlimitClass.ShowContent()$></li>
+                </ul> 
+                <ul>
+                    <li class="left">详细地址：</li>
+                    <li class="right"><input type="text" class="input" style="width:300px" name="Address" id="Address" value="<$userAddress.Address$>"/> <span>*</span></li>
+                </ul>      
+                <ul>
+                    <li class="left"></li>
+                    <li class="right"><input class="button" value="确定" type="submit" onclick="return checkSubmit()"  /><input type="hidden" name="Action" value="PostBack" /></li>
+                </ul>   
+            </div>                   
+        </div>
+        </form>
+    </div>
+    <html:include file="Foot.htm" />
+</body>
+</html>

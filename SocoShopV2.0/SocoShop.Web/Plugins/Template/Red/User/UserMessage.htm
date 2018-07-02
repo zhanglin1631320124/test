@@ -1,0 +1,53 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+    <script language="javascript" type="text/javascript" src="/Admin/Js/Calendar.js" ></script>
+</head>
+<body>
+    <html:include file="Top.htm" />    
+    <div class="main">
+        <div class="left">       
+            <html:include file="/User/UserLeft.htm" />          
+        </div>
+        <div class="right">   
+            <div>用户中心 >  我的留言 </div>
+            <div class="height10"></div>
+            <div class="userTitle"></div>
+            <div id="UserMessageAjax"></div>  
+            <div class="height10"></div>  
+            <div class="line"></div>
+            <div class="height10"></div> 
+            <div class="sendMsg">
+                <dl>
+                    <dt>类型</dt>
+                    <dd><input type="radio" name="MessageClass" value="1" checked="checked" />留言
+                        <input type="radio" name="MessageClass" value="2" />投诉
+                        <input type="radio" name="MessageClass" value="3" />询问
+                        <input type="radio" name="MessageClass" value="4" />售后
+                        <input type="radio" name="MessageClass" value="5" />求购
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>标题</dt>
+                    <dd><input type="text" class="input" style="width:415px" id="Title" /></dd>
+                </dl>
+                <dl>
+                    <dt>内容</dt>
+                    <dd><textarea style="width:420px;height:80px" class="input" name="Content" id="Content"></textarea></dd>
+                </dl>
+                <dl>
+                    <dt>&nbsp;</dt>
+                    <dd><input type="button" class="button" value="确定" onclick="addUserMessage()" /></dd>
+                </dl>
+            </div>              
+        </div>
+    </div>
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/UserMessage.js" ></script>
+    <html:include file="Foot.htm" />
+</body>
+</html>

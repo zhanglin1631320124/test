@@ -1,0 +1,87 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<html:switch name="action">
+    <html:case value=""ReceiveMessage"">
+    <table class="listTable" cellpadding="0" cellpadding="0">
+        <tr class="listTableHead">                 
+            <td width="5%"><input type="checkbox" name="All" onclick="selectAll(this)" /></td>
+            <td width="6%">状态</td>
+            <td width="60%" style="text-align:left;padding-left:5px;">主题</td>
+            <td width="15%">发件人</td>
+            <td width="14%">日期</td>
+        </tr>
+        <html:foreach expression="ReceiveMessageInfo receiveMessage in receiveMessageList">
+        <tr class="listTableMain">                
+            <td><input type="checkbox" name="SelectID" value="<$receiveMessage.ID+"|"+receiveMessage.IsRead $>"/></td>
+            <td><html:if expression="receiveMessage.IsRead==1">已读<html:else>未读</html:if></td>
+            <td style="text-align:left;padding-left:5px;"><a href="/User/ReadMessage.aspx?ID=<$receiveMessage.ID$>" target="_blank"><$receiveMessage.Title $></a></td>
+            <td><html:if expression="receiveMessage.IsAdmin==1">系统消息<html:else><$receiveMessage.UserName $></html:if></td>
+            <td><$receiveMessage.Date.ToString("yyyy-MM-dd") $></td>
+        </tr>
+        </html:foreach>               
+    </table>
+    <div class="height10"></div>
+    <strong>选择：</strong><a href="javascript:selectMessage('All')">全部</a> - <a href="javascript:selectMessage('None')">不选</a> - <a href="javascript:selectMessage('HasRead')">已读</a> - <a href="javascript:selectMessage('NoRead')">未读</a>
+    <div class="height10"></div>
+    <div><input type="button" class="button" value="删除"  onclick="deleteMessage('Receive')"/><$ajaxPagerClass.ShowPage()$></div>
+    <html:break>
+    
+    <html:case value=""SendMessage"">
+    <table class="listTable" cellpadding="0" cellpadding="0">
+        <tr class="listTableHead">                 
+            <td width="5%"><input type="checkbox" name="All" onclick="selectAll(this)" /></td>                
+            <td width="30%" style="text-align:left;padding-left:5px;">主题</td>
+            <td width="50%">收件人</td>
+            <td width="15%">日期</td>
+        </tr>
+        <html:foreach expression="SendMessageInfo sendMessage in sendMessageList">
+        <tr class="listTableMain">                
+            <td><input type="checkbox" name="SelectID" value="<$sendMessage.ID $>"/></td>                
+            <td style="text-align:left;padding-left:5px;"><a  href="MessageDetail.aspx?ID=<$sendMessage.ID$>" target="_blank"><$sendMessage.Title $></a></td>
+            <td><$sendMessage.ToUserName $></td>
+            <td><$sendMessage.Date.ToString("yyyy-MM-dd") $></td>
+        </tr>
+        </html:foreach>               
+    </table>
+    <div class="height10"></div>
+    <strong>选择：</strong><a href="javascript:selectMessage('All')">全部</a> - <a href="javascript:selectMessage('None')">不选</a>
+    <div class="height10"></div>
+    <div><input type="button" class="button" value="删除"  onclick="deleteMessage('Send')"/><$ajaxPagerClass.ShowPage()$></div>
+    <html:break>
+    
+    <html:case value=""WriteMessage"">
+    <div class="sendMsg">
+        <dl>
+            <dt>收件人</dt>
+            <dd>&nbsp;<input type="hidden" id="UserIDList" /><input  id="UserNameList" type="hidden"><span id="UserNameShow"></span></dd>
+        </dl>
+        <dl>
+            <dt>主题</dt>
+            <dd><input type="text" class="input" style="width:415px" id="Title" /> <span style="color:Red">*</span></dd>
+        </dl>
+        <dl>
+            <dt>正文</dt>
+            <dd><textarea style="width:420px;height:180px" class="input" name="Content" id="Content"></textarea></dd>
+        </dl>
+        <dl>
+            <dt>&nbsp;</dt>
+            <dd><input type="button" class="button" value="发送" onclick="sendMessage()" /></dd>
+        </dl>
+    </div>
+    <div class="friendSide">
+        <dl>
+            <dt>
+                <input type="text" id="FriendName" class="input"  value="查找好友..." onfocus="if(this.value=='查找好友...'){this.value=''}"  /> <input type="button" class="button" value="搜索" onclick="searchFriends()" />
+            </dt>
+            <dd id="UserList">
+            <html:foreach expression="UserFriendInfo userFriend in userFriendList">
+            <a href="javascript:addUser(<$userFriend.FriendID$>,'<$userFriend.FriendName$>')" id="User<$userFriend.FriendID$>"><$userFriend.FriendName$></a>            
+            </html:foreach>
+            </dd>
+        </dl>
+    </div>
+    <html:break>    
+    <html:default><html:break>  
+</html:swith>

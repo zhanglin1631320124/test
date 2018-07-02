@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" Inherits="SocoShop.Login.Sina.Login" Codebehind="Login.aspx.cs" %>

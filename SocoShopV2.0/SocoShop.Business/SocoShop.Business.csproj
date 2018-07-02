@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{96C6BAB0-CE5F-4618-962C-B5F86DE6A618}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>SocoShop.Business</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VoteRecordBLL.cs" />
+    <Compile Include="ProductCollectBLL.cs" />
+    <Compile Include="StandardBLL.cs" />
+    <Compile Include="OrderDetailBLL.cs" />
+    <Compile Include="UserFriendBLL.cs" />
+    <Compile Include="VoteItemBLL.cs" />
+    <Compile Include="ReceiveMessageBLL.cs" />
+    <Compile Include="UserMessageBLL.cs" />
+    <Compile Include="ShippingRegionBLL.cs" />
+    <Compile Include="FlashBLL.cs" />
+    <Compile Include="AdBLL.cs" />
+    <Compile Include="UserApplyBLL.cs" />
+    <Compile Include="ShippingBLL.cs" />
+    <Compile Include="UserGradeBLL.cs" />
+    <Compile Include="BookingProductBLL.cs" />
+    <Compile Include="UserCouponBLL.cs" />
+    <Compile Include="MenuBLL.cs" />
+    <Compile Include="SendMessageBLL.cs" />
+    <Compile Include="VoteBLL.cs" />
+    <Compile Include="UserBLL.cs" />
+    <Compile Include="RegionBLL.cs" />
+    <Compile Include="MemberPriceBLL.cs" />
+    <Compile Include="AttributeClassBLL.cs" />
+    <Compile Include="OrderActionBLL.cs" />
+    <Compile Include="UserAccountRecordBLL.cs" />
+    <Compile Include="AdRecordBLL.cs" />
+    <Compile Include="ProductBLL.cs" />
+    <Compile Include="CartBLL.cs" />
+    <Compile Include="UserAddressBLL.cs" />
+    <Compile Include="TagsBLL.cs" />
+    <Compile Include="AttributeRecordBLL.cs" />
+    <Compile Include="UploadBLL.cs" />
+    <Compile Include="EmailSendRecordBLL.cs" />
+    <Compile Include="StandardRecordBLL.cs" />
+    <Compile Include="UserRechargeBLL.cs" />
+    <Compile Include="CouponBLL.cs" />
+    <Compile Include="ArticleBLL.cs" />
+    <Compile Include="ProductBrandBLL.cs" />
+    <Compile Include="AdminLogBLL.cs" />
+    <Compile Include="ProductReplyBLL.cs" />
+    <Compile Include="AdminBLL.cs" />
+    <Compile Include="ArticleClassBLL.cs" />
+    <Compile Include="GiftPackBLL.cs" />
+    <Compile Include="LinkBLL.cs" />
+    <Compile Include="GiftBLL.cs" />
+    <Compile Include="FavorableActivityBLL.cs" />
+    <Compile Include="OrderBLL.cs" />
+    <Compile Include="ThemeActivityBLL.cs" />
+    <Compile Include="FlashPhotoBLL.cs" />
+    <Compile Include="AttributeBLL.cs" />
+    <Compile Include="ProductPhotoBLL.cs" />
+    <Compile Include="AdminGroupBLL.cs" />
+    <Compile Include="ProductClassBLL.cs" />
+    <Compile Include="ProductCommentBLL.cs" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SkyCES.EntLib\SkyCES.EntLib.csproj">
+      <Project>{8123DBBC-112C-4853-8597-3C5E64C3965A}</Project>
+      <Name>SkyCES.EntLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocoShop.Common\SocoShop.Common.csproj">
+      <Project>{24E863CA-13AB-4320-9ED2-E0E715AB8C0D}</Project>
+      <Name>SocoShop.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocoShop.Entity\SocoShop.Entity.csproj">
+      <Project>{09D1C5BE-BE56-4F95-96FE-B43C2C2B4B05}</Project>
+      <Name>SocoShop.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocoShop.IDAL\SocoShop.IDAL.csproj">
+      <Project>{423A54D8-719A-4FEC-A4A7-B3893AAB64BB}</Project>
+      <Name>SocoShop.IDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

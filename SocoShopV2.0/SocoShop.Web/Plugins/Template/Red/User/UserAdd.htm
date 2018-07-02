@@ -1,0 +1,96 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+    <script language="javascript" type="text/javascript" src="/Admin/Js/Calendar.js" ></script>
+    <script language="javascript" type="text/javascript" src="/Admin/Js/UnlimitClass.js" ></script>
+</head>
+<body>
+    <html:include file="Top.htm" />    
+    <div class="main">
+        <form action="/User/UserAdd.aspx" method="post" name="form" enctype="multipart/form-data" >
+        <div class="left">       
+            <html:include file="/User/UserLeft.htm" />          
+        </div>
+        <div class="right">   
+            <div>用户中心 > 基本资料</div>  
+            <div class="height10"></div>         
+            <div class="userTitle"></div>
+            <div class="add">
+                <ul>
+                    <li class="left">用户名：</li>
+                    <li class="right"><$base.UserName$></li>
+                </ul>  
+                <ul>
+                    <li class="left">Email：</li>
+                    <li class="right"><input type="text" class="input" style="width:300px" name="Email" value="<$user.Email$>" /></li>
+                </ul>
+                <ul>
+                    <li class="left">性别：</li>
+                    <li class="right"><input type="radio" name="Sex" value="1" <html:if expression="user.Sex==1">checked="checked"</html:if> />男<input type="radio" name="Sex" value="2" <html:if expression="user.Sex==2">checked="checked"</html:if>/>女<input type="radio" name="Sex" value="3" <html:if expression="user.Sex==3">checked="checked"</html:if>/>保密</li>
+                </ul>
+                <ul>
+                    <li class="left">生日：</li>
+                    <li class="right"><input type="text" class="input" style="width:300px" name="Birthday" onfocus="cdr.show(this);" value="<$user.Birthday$>"/> </li>
+                </ul> 
+                <ul>
+                    <li class="left">Msn：</li>
+                    <li class="right"><input type="text" class="input" style="width:300px" name="MSN" value="<$user.MSN$>"/></li>
+                </ul>
+                 <ul>
+                    <li class="left">QQ：</li>
+                    <li class="right"><input type="text" class="input" style="width:300px" name="QQ" value="<$user.QQ$>"/></li>
+                </ul> 
+                <ul>
+                    <li class="left">固定电话：</li>
+                    <li class="right"><input type="text" class="input" style="width:300px" name="Tel" value="<$user.Tel$>"/></li>
+                </ul> 
+                <ul>
+                    <li class="left">移动电话：</li>
+                    <li class="right"><input type="text" class="input" style="width:300px" name="Mobile" value="<$user.Mobile$>" /></li>
+                </ul> 
+                <ul>
+                    <li class="left">所在地区：</li>
+                    <li class="right"><$singleUnlimitClass.ShowContent()$></li>
+                </ul> 
+                <ul>
+                    <li class="left">详细地址：</li>
+                    <li class="right"><input type="text" class="input" style="width:300px" name="Address" value="<$user.Address$>"/></li>
+                </ul>                
+                <ul>
+                    <li class="left">个人介绍：</li>
+                    <li class="right"><textarea  style="width:400px; height:80px" name="Introduce" class="input"><$user.Introduce$></textarea></li>
+                </ul> 
+            </div>
+            <div class="height10"></div>  
+            <div class="line"></div>
+            <div class="height10"></div> 
+            <div class="add">
+                <ul>
+                    <li class="left"><span class="userPhoto"><img src="<$UserBLL.ReadUserPhoto("70-70")$>"  id="UserPhoto" onload="photoLoad(this,70,70)" /></span></li>
+                    <li class="right">
+                        <input type="file" name="Photo" /><br />
+                        个人形象会展示在你的个人首页、商品点评、讨论区中。想让您受到更多人的关注，请上传：<br />
+                        1、 自己的真实的单人照片；<br />
+                        2、清晰、正面、近距离的照片；<br />
+                        3、照片无其他站点的水印或logo；
+                    </li>
+                </ul>   
+            </div> 
+            <div class="height10"></div> 
+            <div class="add">
+                <ul>
+                    <li class="left"></li>
+                    <li class="right"><input class="button" value="确定" type="submit" /><input type="hidden" name="Action" value="PostBack" /></li>
+                </ul>   
+            </div>                   
+        </div>
+        </form>
+    </div>
+    <html:include file="Foot.htm" />
+</body>
+</html>

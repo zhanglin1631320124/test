@@ -1,0 +1,48 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/BookingProductAdd.js" ></script>
+</head>
+<body>
+    <html:include file="Top.htm" />    
+    <div class="main">
+        <form action="/BookingProductAdd.aspx" method="post" name="form">  
+        <div>缺货登记</div>  
+        <div class="height10"></div>         
+        <div class="userTitle"></div>
+        <div class="add">
+            <ul>
+                <li class="left">商品名称：</li>
+                <li class="right"><$productName$><input type="hidden" name="ProductName" value="<$productName$>" /><input type="hidden" name="ProductID" value="<$productID$>" /></li>
+            </ul>  
+            <ul>
+                <li class="left">联系人：</li>
+                <li class="right"><input type="text" class="input" style="width:300px" name="RelationUser" id="RelationUser" /> <span>*</span></li>
+            </ul>
+            <ul>
+                <li class="left">Email：</li>
+                <li class="right"><input type="text" class="input" style="width:300px" name="Email" id="Email" value="<$user.Email$>"/> <span>*</span></li>
+            </ul>  
+            <ul>
+                <li class="left">联系电话：</li>
+                <li class="right"><input type="text" class="input" style="width:300px" name="Tel" id="Tel" value="<$user.Tel$>"/> <span>*</span></li>
+            </ul>              
+            <ul>
+                <li class="left">用户留言：</li>
+                <li class="right"><textarea  style="width:400px; height:80px" name="UserNote"></textarea></li>
+            </ul> 
+            <ul>
+                <li class="left"></li>
+                <li class="right"><input class="button" value="确定" type="submit"  onclick="return checkSubmit()"/><input type="hidden" name="Action" value="PostBack" /></li>
+            </ul>   
+        </div>     
+        </form>
+    </div>
+    <html:include file="Foot.htm" />
+</body>
+</html>

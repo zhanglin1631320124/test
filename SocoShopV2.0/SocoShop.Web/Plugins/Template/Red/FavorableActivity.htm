@@ -1,0 +1,29 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />   
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+       <div class="position">首页 > 优惠活动</div>
+        <div class="height10"></div>
+        <html:foreach expression="FavorableActivityInfo favorableActivity in favorableActivityList">
+        <div class="favorableActivityList">
+            <div class="photo"><a href="/FavorableActivityDetail-I<$favorableActivity.ID$>.aspx" target="_blank"><img src="<$favorableActivity.Photo.Replace("Original","300-120")$>" onload="photoLoad(this,300,120)"  /></a></div>
+            <ul class="info">
+                <li class="name"><a href="/FavorableActivityDetail-I<$favorableActivity.ID$>.aspx" target="_blank"><$favorableActivity.Name$></a> </li>
+                <li class="time">活动时间：<$favorableActivity.StartDate.ToString("yyyy年MM月dd日")$> — <$favorableActivity.EndDate.ToString("yyyy年MM月dd日")$> </li>
+                <li>活动介绍：<a href="/FavorableActivityDetail-I<$favorableActivity.ID$>.aspx" target="_blank"><$favorableActivity.Content$></a> </li>
+            </ul>
+        </div>
+        </html:foreach>
+        <$commonPagerClass.ShowPage()$> 
+    </div>
+    <html:include file="Foot.htm" />   
+</body>
+</html>

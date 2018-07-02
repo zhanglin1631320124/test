@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{09D1C5BE-BE56-4F95-96FE-B43C2C2B4B05}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>SocoShop.Entity</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FavorableActivityInfo.cs" />
+    <Compile Include="ShippingRegionInfo.cs" />
+    <Compile Include="VoteRecordInfo.cs" />
+    <Compile Include="PayPluginsInfo.cs" />
+    <Compile Include="UserStatus.cs" />
+    <Compile Include="ShippingType.cs" />
+    <Compile Include="UserFriendInfo.cs" />
+    <Compile Include="OrderDetailInfo.cs" />
+    <Compile Include="TagsSearchInfo.cs" />
+    <Compile Include="AdminInfo.cs" />
+    <Compile Include="MessageType.cs" />
+    <Compile Include="DisplayTye.cs" />
+    <Compile Include="OrderInfo.cs" />
+    <Compile Include="BookingProductInfo.cs" />
+    <Compile Include="ThemeActivityInfo.cs" />
+    <Compile Include="AdminGroupInfo.cs" />
+    <Compile Include="CartGiftPackVirtualInfo.cs" />
+    <Compile Include="SendMessageInfo.cs" />
+    <Compile Include="AttributeClassInfo.cs" />
+    <Compile Include="ProductCommentSearchInfo.cs" />
+    <Compile Include="ProductCommentInfo.cs" />
+    <Compile Include="UserFriendSearchInfo.cs" />
+    <Compile Include="EmailSendRecordInfo.cs" />
+    <Compile Include="CouponInfo.cs" />
+    <Compile Include="FlashInfo.cs" />
+    <Compile Include="ProductBrandInfo.cs" />
+    <Compile Include="ProductPhotoInfo.cs" />
+    <Compile Include="ProductPhotoSearchInfo.cs" />
+    <Compile Include="ChangeAction.cs" />
+    <Compile Include="CartCommonProductVirtualInfo.cs" />
+    <Compile Include="OrderActionInfo.cs" />
+    <Compile Include="ProductReplyInfo.cs" />
+    <Compile Include="PowerCheckType.cs" />
+    <Compile Include="OrderOperate.cs" />
+    <Compile Include="CartInfo.cs" />
+    <Compile Include="SendMessageSearchInfo.cs" />
+    <Compile Include="UserMessageSeachInfo.cs" />
+    <Compile Include="LinkInfo.cs" />
+    <Compile Include="ArticleSearchInfo.cs" />
+    <Compile Include="ActivityPluginsInfo.cs" />
+    <Compile Include="SexType.cs" />
+    <Compile Include="SendStatus.cs" />
+    <Compile Include="CommentStatus.cs" />
+    <Compile Include="ProductCollectInfo.cs" />
+    <Compile Include="UserCouponSearchInfo.cs" />
+    <Compile Include="ArticleClass.cs" />
+    <Compile Include="ProductSearchInfo.cs" />
+    <Compile Include="ProductSearchType.cs" />
+    <Compile Include="AccountType.cs" />
+    <Compile Include="CouponSearchInfo.cs" />
+    <Compile Include="ReceiveMessageInfo.cs" />
+    <Compile Include="ArticleClassInfo.cs" />
+    <Compile Include="MemberPriceInfo.cs" />
+    <Compile Include="UploadInfo.cs" />
+    <Compile Include="PowerInfo.cs" />
+    <Compile Include="MenuInfo.cs" />
+    <Compile Include="DateType.cs" />
+    <Compile Include="LoginPluginsInfo.cs" />
+    <Compile Include="GiftPackInfo.cs" />
+    <Compile Include="UserAccountRecordInfo.cs" />
+    <Compile Include="UserApplyInfo.cs" />
+    <Compile Include="VoteInfo.cs" />
+    <Compile Include="FlashPhotoInfo.cs" />
+    <Compile Include="AdInfo.cs" />
+    <Compile Include="ArticleInfo.cs" />
+    <Compile Include="AttributeInfo.cs" />
+    <Compile Include="ApplyStatus.cs" />
+    <Compile Include="OrderCommonProductVirtualInfo.cs" />
+    <Compile Include="ShopConfigInfo.cs" />
+    <Compile Include="AdminLogInfo.cs" />
+    <Compile Include="LinkType.cs" />
+    <Compile Include="StandardRecordInfo.cs" />
+    <Compile Include="UserRechargeSearchInfo.cs" />
+    <Compile Include="UserRechargeInfo.cs" />
+    <Compile Include="UserAddressInfo.cs" />
+    <Compile Include="ArticleCommentSearchInfo.cs" />
+    <Compile Include="UserGradeInfo.cs" />
+    <Compile Include="StorageAnalyseType.cs" />
+    <Compile Include="FavorableMoney.cs" />
+    <Compile Include="ReceiveMessageSearchInfo.cs" />
+    <Compile Include="GiftSearchInfo.cs" />
+    <Compile Include="TemplatePluginsInfo.cs" />
+    <Compile Include="UserMessageInfo.cs" />
+    <Compile Include="UserInfo.cs" />
+    <Compile Include="TagsInfo.cs" />
+    <Compile Include="OrderSearchInfo.cs" />
+    <Compile Include="EmailSendRecordSearchInfo.cs" />
+    <Compile Include="VoteType.cs" />
+    <Compile Include="ProductStorageType.cs" />
+    <Compile Include="OrderStatus.cs" />
+    <Compile Include="FavorableShipping.cs" />
+    <Compile Include="VoteItemInfo.cs" />
+    <Compile Include="ProductClassInfo.cs" />
+    <Compile Include="OrderGiftPackVirtualInfo.cs" />
+    <Compile Include="ProductStandardType.cs" />
+    <Compile Include="CouponType.cs" />
+    <Compile Include="GiftInfo.cs" />
+    <Compile Include="EmailContentInfo.cs" />
+    <Compile Include="BookingProductSearchInfo.cs" />
+    <Compile Include="ProductShowWay.cs" />
+    <Compile Include="StandardInfo.cs" />
+    <Compile Include="UserApplySearchInfo.cs" />
+    <Compile Include="AdRecordInfo.cs" />
+    <Compile Include="AttributeRecordInfo.cs" />
+    <Compile Include="UserSearchInfo.cs" />
+    <Compile Include="ProductInfo.cs" />
+    <Compile Include="InputType.cs" />
+    <Compile Include="UserCouponInfo.cs" />
+    <Compile Include="ShippingInfo.cs" />
+    <Compile Include="RegionInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SkyCES.EntLib\SkyCES.EntLib.csproj">
+      <Project>{8123DBBC-112C-4853-8597-3C5E64C3965A}</Project>
+      <Name>SkyCES.EntLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

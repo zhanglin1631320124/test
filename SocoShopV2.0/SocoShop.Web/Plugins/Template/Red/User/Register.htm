@@ -1,0 +1,61 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+        <form action="/User/Register.aspx" method="post" name="form" >
+        <html:if expression="result!=string.Empty">
+        <div class="alertMessage"><$result$></div>
+        <html:else>
+        <html:if expression="errorMessage!=string.Empty">
+        <div class="alertMessage"><$errorMessage$></div>
+        </html:if>
+        <div class="loginTitle">用户注册</div>
+        <div class="add register">
+            <ul>
+                <li class="left">用户名：</li>
+                <li class="right"><input type="text" class="input" style="width:120px" name="UserName" id="UserName" onblur="checkUserName(<$ShopConfig.ReadConfigInfo().UserNameMinLength$>,<$ShopConfig.ReadConfigInfo().UserNameMaxLength$>)" /> <input id="CheckUserName" value="0" type="hidden" /><span id="UserNameWarningMessage"></span> <$ShopConfig.ReadConfigInfo().UserNameMinLength$>-<$ShopConfig.ReadConfigInfo().UserNameMaxLength$>个字符组成（包括字母、数字、下划线、中文）。</li>
+            </ul>  
+            <ul>
+                <li class="left">密码：</li>
+                <li class="right"><input type="password" class="input" style="width:120px" name="UserPassword1" id="UserPassword1" onblur="checkUserPass(<$ShopConfig.ReadConfigInfo().PasswordMinLength$>,<$ShopConfig.ReadConfigInfo().PasswordMaxLength$>)"/> <input id="CheckUserPassword1" value="0" type="hidden" /> <span id="PasswordWarningMessage1"></span> 密码由<$ShopConfig.ReadConfigInfo().PasswordMinLength$> - <$ShopConfig.ReadConfigInfo().PasswordMaxLength$>个字符组成，建议使用英文字母加数字或符号的组合密码。</li>
+            </ul>
+            <ul>
+                <li class="left">确认密码：</li>
+                <li class="right"><input type="password" class="input" style="width:120px" name="UserPassword2" id="UserPassword2" onblur="checkUserPass2(<$ShopConfig.ReadConfigInfo().PasswordMinLength$>,<$ShopConfig.ReadConfigInfo().PasswordMaxLength$>)"/> <input id="CheckUserPassword2" value="0" type="hidden" /> <span id="PasswordWarningMessage2"></span> 请再次确认你的密码。</li>
+            </ul>
+            <ul>
+                <li class="left">E-mail地址：</li>
+                <li class="right"><input type="text" class="input" style="width:120px" name="Email" id="Email" onblur="checkEmail()"/> <input id="CheckEmail" value="0" type="hidden" /> <span id="EmailWarningMessage"></span>只有填写正确的邮箱才能帮您找回密码。</li>
+            </ul>
+            <ul>
+                <li class="left">验证码：</li>
+                <li class="right"><input type="text" class="input" style="width:120px" name="SafeCode" id="SafeCode"/> <img src="CheckCode.ashx" onclick="this.src='CheckCode.ashx?t=' + new Date();" style="cursor:pointer" alt="点击刷新验证码" align="absmiddle" /></li>
+            </ul> 
+            <ul>
+                <li class="left"></li>
+                <li class="right"><input type="checkbox"  id="AgreeProtocol"/> 我已详细阅读使用条款并同意遵守 </li>
+            </ul> 
+            <ul>
+                <li class="left"></li>
+                <li class="right"><textarea name="Agreement" style="width:500px; height:100px;"><$ShopConfig.ReadConfigInfo().Agreement$></textarea> </li>
+            </ul>  
+            <ul>
+                <li class="left"></li>
+                <li class="right"><input class="button" value="注册" type="submit" onclick="return checkRegister()" /><input type="hidden" name="Action" value="PostBack" /></li>
+            </ul> 
+        </div> 
+        </html:if>
+        </form>
+    </div>
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/Register.js" ></script>
+    <html:include file="Foot.htm" />    
+</body>
+</html>

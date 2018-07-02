@@ -1,0 +1,25 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+        <div class="brand">
+            <html:foreach expression="ProductBrandInfo productBrand in productBrandList">    
+            <html:csharp>string url=productBrand.Url; if(url==string.Empty){url="BrandDetail-I"+productBrand.ID+".aspx";}</html:csharp>            
+            <ul>
+                <li><a href="<$url$>" class="brandPhoto"><img src="<$productBrand.Logo$>" onload="photoLoad(this,138,46)" /></a></li>
+                <li><a href="<$url$>"><$productBrand.Name$></a></li>                    
+            </ul>
+            </html:foreach>
+        </div>  
+    </div>
+    <html:include file="Foot.htm" />
+</body>
+</html>

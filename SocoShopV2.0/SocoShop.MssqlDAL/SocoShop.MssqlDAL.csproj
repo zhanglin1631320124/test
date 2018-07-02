@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{0C1732CB-59F4-4E74-BD4F-9666DA9479FA}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>SocoShop.MssqlDAL</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShippingDAL.cs" />
+    <Compile Include="FlashDAL.cs" />
+    <Compile Include="LinkDAL.cs" />
+    <Compile Include="ArticleClassDAL.cs" />
+    <Compile Include="GiftDAL.cs" />
+    <Compile Include="ProductDAL.cs" />
+    <Compile Include="ProductPhotoDAL.cs" />
+    <Compile Include="FlashPhotoDAL.cs" />
+    <Compile Include="ArticleDAL.cs" />
+    <Compile Include="ProductClassDAL.cs" />
+    <Compile Include="ProductCommentDAL.cs" />
+    <Compile Include="EmailSendRecordDAL.cs" />
+    <Compile Include="FavorableActivityDAL.cs" />
+    <Compile Include="OrderDetailDAL.cs" />
+    <Compile Include="RegionDAL.cs" />
+    <Compile Include="AdRecordDAL.cs" />
+    <Compile Include="AttributeRecordDAL.cs" />
+    <Compile Include="AdminGroupDAL.cs" />
+    <Compile Include="ProductCollectDAL.cs" />
+    <Compile Include="AttributeDAL.cs" />
+    <Compile Include="UserMessageDAL.cs" />
+    <Compile Include="ShippingRegionDAL.cs" />
+    <Compile Include="VoteRecordDAL.cs" />
+    <Compile Include="UploadDAL.cs" />
+    <Compile Include="ReceiveMessageDAL.cs" />
+    <Compile Include="CouponDAL.cs" />
+    <Compile Include="AdminLogDAL.cs" />
+    <Compile Include="ShopMssqlHelper.cs" />
+    <Compile Include="UserFriendDAL.cs" />
+    <Compile Include="GiftPackDAL.cs" />
+    <Compile Include="SendMessageDAL.cs" />
+    <Compile Include="BookingProductDAL.cs" />
+    <Compile Include="AdDAL.cs" />
+    <Compile Include="MemberPriceDAL.cs" />
+    <Compile Include="AdminDAL.cs" />
+    <Compile Include="MenuDAL.cs" />
+    <Compile Include="ShopMssqlPagerClass.cs" />
+    <Compile Include="OrderDAL.cs" />
+    <Compile Include="OrderActionDAL.cs" />
+    <Compile Include="UserCouponDAL.cs" />
+    <Compile Include="UserAddressDAL.cs" />
+    <Compile Include="VoteDAL.cs" />
+    <Compile Include="AttributeClassDAL.cs" />
+    <Compile Include="ThemeActivityDAL.cs" />
+    <Compile Include="UserApplyDAL.cs" />
+    <Compile Include="UserDAL.cs" />
+    <Compile Include="UserGradeDAL.cs" />
+    <Compile Include="CartDAL.cs" />
+    <Compile Include="StandardRecordDAL.cs" />
+    <Compile Include="StandardDAL.cs" />
+    <Compile Include="TagsDAL.cs" />
+    <Compile Include="ProductBrandDAL.cs" />
+    <Compile Include="UserRechargeDAL.cs" />
+    <Compile Include="UserAccountRecordDAL.cs" />
+    <Compile Include="VoteItemDAL.cs" />
+    <Compile Include="ProductReplyDAL.cs" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SkyCES.EntLib\SkyCES.EntLib.csproj">
+      <Project>{8123DBBC-112C-4853-8597-3C5E64C3965A}</Project>
+      <Name>SkyCES.EntLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocoShop.Common\SocoShop.Common.csproj">
+      <Project>{24E863CA-13AB-4320-9ED2-E0E715AB8C0D}</Project>
+      <Name>SocoShop.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocoShop.Entity\SocoShop.Entity.csproj">
+      <Project>{09D1C5BE-BE56-4F95-96FE-B43C2C2B4B05}</Project>
+      <Name>SocoShop.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocoShop.IDAL\SocoShop.IDAL.csproj">
+      <Project>{423A54D8-719A-4FEC-A4A7-B3893AAB64BB}</Project>
+      <Name>SocoShop.IDAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

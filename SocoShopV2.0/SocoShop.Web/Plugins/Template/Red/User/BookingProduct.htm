@@ -1,0 +1,47 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+    <script language="javascript" type="text/javascript" src="/Admin/Js/Calendar.js" ></script>
+</head>
+<body>
+    <html:include file="Top.htm" />    
+    <div class="main">
+        <div class="left">       
+            <html:include file="/User/UserLeft.htm" />          
+        </div>
+        <div class="right">   
+            <div>用户中心 >  缺货登记  </div>
+            <div class="height10"></div>
+            <div class="userTitle"></div>
+            <table class="listTable" cellpadding="0" cellpadding="0">
+                <tr class="listTableHead">                 
+                    <td width="30%" style="text-align:left;padding-left:5px;">商品名称</td>
+                    <td width="10%">联系人</td>
+                    <td width="15%">电话</td>
+                    <td width="15%">Email</td>
+                    <td width="15%">登记时间</td>
+                    <td width="7%">处理</td>
+                    <td width="8%">查看</td>
+                </tr>
+                <html:foreach expression="BookingProductInfo bookingProduct in bookingProductList">
+                <tr class="listTableMain">       
+                    <td style="text-align:left;padding-left:5px;"><a href="/ProductDetail-I<$bookingProduct.ProductID$>.aspx" target="_blank"><$bookingProduct.ProductName$></a></td>
+                    <td><$bookingProduct.RelationUser $></td>
+                    <td><$bookingProduct.Tel $></td>
+                    <td><$bookingProduct.Email $></td>
+                    <td><$bookingProduct.BookingDate $></td>
+                    <td><html:if expression="bookingProduct.IsHandler==1">是<html:else>否</html:if></td>
+                    <td><a href="/User/BookingProductDetail.aspx?ID=<$bookingProduct.ID $>" target="_blank"/>查看</a></td>
+                </tr>
+                </html:foreach>               
+            </table>              
+        </div>
+    </div>
+    <html:include file="Foot.htm" />
+</body>
+</html>

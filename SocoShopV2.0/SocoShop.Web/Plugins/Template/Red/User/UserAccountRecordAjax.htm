@@ -1,0 +1,41 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<table class="listTable" cellpadding="0" cellpadding="0">
+    <tr class="listTableHead">                               
+        <td width="20%">时间</td>
+        <td width="40%" style="text-align:left;padding-left:5px;">备注</td>
+        <td width="10%">IP</td>
+        <td width="10%">收入</td>
+        <td width="10%">支出</td>
+        <td width="10%">剩余</td>
+    </tr>
+<html:if expression="accountType==(int)AccountType.Money">    <html:foreach expression="UserAccountRecordInfo userAccountRecord in userAccountRecordList">
+    <html:csharp>
+        moneyLeft += userAccountRecord.Money;
+    </html:csharp>
+    <tr class="listTableMain">
+        <td><$userAccountRecord.Date$></td>
+        <td style="text-align:left;padding-left:5px;"><$userAccountRecord.Note$></td>
+        <td><$userAccountRecord.IP$></td>
+        <td><html:if expression="userAccountRecord.Money > 0"><$userAccountRecord.Money$></html:if>&nbsp;</td>
+        <td><html:if expression="userAccountRecord.Money < 0"><$-userAccountRecord.Money$></html:if>&nbsp;</td>
+        <td><$moneyLeft$></td>
+    </tr>
+    </html:foreach><html:else>    <html:foreach expression="UserAccountRecordInfo userAccountRecord in userAccountRecordList">
+    <html:csharp>
+        pointLeft += userAccountRecord.Point;
+    </html:csharp>
+    <tr class="listTableMain">
+        <td><$userAccountRecord.Date$></td>
+        <td style="text-align:left;padding-left:5px;"><$userAccountRecord.Note$></td>
+        <td><$userAccountRecord.IP$></td>
+        <td><html:if expression="userAccountRecord.Point > 0"><$userAccountRecord.Point$></html:if>&nbsp;</td>
+        <td><html:if expression="userAccountRecord.Point < 0"><$-userAccountRecord.Point$></html:if>&nbsp;</td>
+        <td><$pointLeft$></td>
+    </tr>
+    </html:foreach></html:if>            
+</table>
+<div class="height10"></div>
+<div><$ajaxPagerClass.ShowPage()$></div>

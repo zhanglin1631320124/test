@@ -1,0 +1,54 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<html:switch name="action">
+    <html:case value=""Read"">    
+    <table class="listTable" cellpadding="0" cellpadding="0">
+        <tr class="listTableHead">                               
+            <td width="20%" style="text-align:left;padding-left:5px;">流水号</td>
+            <td width="15%">金额(元)</td>
+            <td width="25%">充值时间</td>
+            <td width="25%">支付方式</td>
+            <td width="15%">是否完成</td>
+        </tr>
+        <html:foreach expression="UserRechargeInfo userRecharge in userRechargeList">
+        <tr class="listTableMain">                             
+            <td style="text-align:left;padding-left:5px;"><$userRecharge.Number $></td>
+            <td><$userRecharge.Money $></td>
+            <td><$userRecharge.RechargeDate $></td>
+            <td><$userRecharge.PayName $></td>
+            <td><html:if expression="userRecharge.IsFinish==1">是<html:else>否</html:if></td>
+        </tr>
+        </html:foreach>               
+    </table>
+    <div class="height10"></div>
+    <div><$ajaxPagerClass.ShowPage()$></div>
+    <html:break>
+    
+    <html:case value=""Add"">
+    <div class="add">
+        <ul>
+            <li class="left">用户：</li>
+            <li class="right"><$base.UserName$></li>
+        </ul>
+        <ul>
+            <li class="left">余额：</li>
+            <li class="right"><$moneyLeft$> 元 </li>
+        </ul>  
+        <ul>
+            <li class="left">充值金额：</li>
+            <li class="right"><input type="text" class="input" style="width:100px" id="Money" />（元）</li>
+        </ul>
+         <ul>
+            <li class="left">支付方式：</li>
+            <li class="right"><html:foreach expression="PayPluginsInfo payPlugins in payPluginsList"><input type="radio" name="PayKey" value="<$payPlugins.Key$>" /><$payPlugins.Name$></html:foreach></li>
+        </ul> 
+        <ul>
+            <li class="left">&nbsp;</li>
+            <li class="right"><input type="button" class="button" value="确定" onclick="addUserRecharge()" /></li>
+        </ul> 
+    </div>
+    <html:break>    
+    <html:default><html:break>  
+</html:swith>

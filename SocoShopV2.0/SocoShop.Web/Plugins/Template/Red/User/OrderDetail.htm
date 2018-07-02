@@ -1,0 +1,172 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+</head>
+<body>
+    <html:include file="Top.htm" />    
+    <div class="main">
+        <div class="left">       
+            <html:include file="/User/UserLeft.htm" />          
+        </div>
+        <div class="right">   
+            <div>用户中心 >  订单管理 </div>
+            <div class="height10"></div>
+            <div class="userTitle"></div>
+            <div class="checkOutTitle" style="margin-top:0px;">基本信息</div>
+            <div class="checkOutLine"></div>
+            <div class="add checkOut">
+                <ul>
+                    <li class="left"> 订单号：</li>
+                    <li class="right"><$order.OrderNumber$><html:if expression="order.IsActivity==(int)BoolType.True">（活动订单）</html:if></li>
+                </ul>
+                <ul>
+                    <li class="left"> 下单时间：</li>
+                    <li class="right"><$order.AddDate$></li>
+                </ul>  
+                <ul>
+                    <li class="left"> 状态：</li>
+                    <li class="right"><$OrderBLL.ReadOrderStatus(order.OrderStatus)$></li>
+                </ul>
+                <ul>
+                    <li class="left"> 支付方式：</li>
+                    <li class="right"><$order.PayName$></li>
+                </ul>
+                <ul>
+                    <li class="left"> 配送方式：</li>
+                    <li class="right"><$ShippingBLL.ReadShippingCache(order.ShippingID).Name$></li>
+                </ul>
+                <html:if expression="order.OrderStatus>(int)OrderStatus.Shipping">
+                <ul>
+                    <li class="left">配送日期：</li>
+                    <li class="right"><$order.ShippingDate.ToString("yyyy-MM-dd")$></li>
+                </ul>
+                <ul>
+                    <li class="left">配送单号：</li>
+                    <li class="right"><$order.ShippingNumber$></li>
+                </ul>
+                </html:if>
+            </div>
+            <div class="checkOutTitle">收货人信息</div>
+            <div class="checkOutLine"></div>
+            <div class="add checkOut">
+                <ul>
+                    <li class="left"> 收货人姓名：</li>
+                    <li class="right"><$order.Consignee$></li>
+                </ul>  
+                <ul>
+                    <li class="left"> 固定电话：</li>
+                    <li class="right"><$order.Tel$></li>
+                </ul>
+                <ul>
+                    <li class="left"> 手机：</li>
+                    <li class="right"><$order.Mobile$></li>
+                </ul>
+                 <ul>
+                    <li class="left"> Email：</li>
+                    <li class="right"><$order.Email$></li>
+                </ul>
+                 <ul>
+                    <li class="left"> 地址：</li>
+                    <li class="right"><$RegionBLL.RegionNameList(order.RegionID)$> <$order.Address$></li>
+                </ul>  
+                 <ul>
+                    <li class="left"> 邮编：</li>
+                    <li class="right"><$order.ZipCode$></li>
+                </ul> 
+            </div>
+            <html:if expression="order.InvoiceTitle!=string.Empty || order.InvoiceContent!=string.Empty || order.UserMessage!=string.Empty || gift.ID>0">
+            <div class="checkOutTitle">其他信息</div>
+            <div class="checkOutLine"></div>
+            <div class="add checkOut">
+                <html:if expression="order.InvoiceTitle!=string.Empty || order.InvoiceContent!=string.Empty">
+                <ul>
+                    <li class="left">发票标题：</li>
+                    <li class="right"><$order.InvoiceTitle$></li>
+                </ul> 
+                <ul>
+                    <li class="left">发票内容：</li>
+                    <li class="right"><$order.InvoiceContent$></li>
+                </ul> 
+                </html:if>
+                <html:if expression="order.UserMessage!=string.Empty">
+                <ul>
+                    <li class="left">用户留言：</li>
+                    <li class="right"><$order.UserMessage$></li>
+                </ul> 
+                </html:if>
+                <html:if expression="gift.ID>0">
+                <ul>
+                    <li class="left">礼品信息：</li>
+                    <li class="right"><$gift.Name$></li>
+                </ul>
+                </html:if>
+            </div>
+            </html:if>
+            <div class="checkOutTitle">商品信息</div>
+            <div class="checkOutLine"></div>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+                <tr class="cartHead">
+                    <td style="width:80px">商品</td>
+                    <td style="width:460px">名称</td>
+                    <td style="width:80px">赠送积分</td>
+                    <td style="width:80px">重量</td>
+                    <td style="width:80px">单价</td>
+                    <td style="width:80px">数量</td>
+                    <td>小计</td>
+                </tr>
+                <html:foreach expression="OrderGiftPackVirtualInfo orderGiftPackVirtual in orderGiftPackVirtualList">  
+                <tr class="cartMain" valign="middle">
+                    <td style="width:80px" class="photo"><a href="/GiftPackDetail-I<$orderGiftPackVirtual.GiftPackID$>.aspx" target="_blank"><img src="<$orderGiftPackVirtual.GiftPackPhoto.Replace("Original","150-60")$>"  onload="photoLoad(this,60,60)" /></a></td>
+                    <td style="width:460px; text-align:left; text-indent:8px;"><$orderGiftPackVirtual.GiftPackName$>
+                        <div class="smallBox">
+                            <html:foreach expression="OrderDetailInfo orderDetail in orderGiftPackVirtual.OrderDetailList">
+                            <html:csharp>ProductInfo product = ProductBLL.ReadProductByProductList(productList, orderDetail.ProductID);</html:csharp>
+                            <div><img  src="<$product.Photo.Replace("Original","60-60")$>"  onload="photoLoad(this,30,30)" style=" vertical-align:middle"/> <$orderDetail.ProductName$></div>
+                            </html:foreach>
+                        </div>
+                    </td>
+                    <td style="width:80px"><$orderGiftPackVirtual.TotalSendPoint$></td>
+                    <td style="width:80px"><$orderGiftPackVirtual.TotalProductWeight$> 克</td>
+                    <td style="width:80px">￥<$orderGiftPackVirtual.TotalPrice$></td>
+                    <td style="width:80px"><$orderGiftPackVirtual.GiftPackBuyCount$></td>
+                    <td>￥<$orderGiftPackVirtual.GiftPackBuyCount*orderGiftPackVirtual.TotalPrice$></td>
+                </tr>
+                </html:foreach>
+                <html:foreach expression="OrderCommonProductVirtualInfo orderCommonProductVirtual in orderCommonProductVirtualList">  
+                <html:csharp>ProductInfo product = ProductBLL.ReadProductByProductList(productList, orderCommonProductVirtual.FatherOrderDetail.ProductID);</html:csharp>
+                <tr class="cartMain">
+                    <td style="width:80px" class="photo"><a href="/ProductDetail-I<$product.ID$>.aspx" target="_blank"><img  src="<$product.Photo.Replace("Original","60-60")$>"  onload="photoLoad(this,60,60)"/></a></td>
+                    <td style="width:460px; text-align:left; text-indent:8px;">
+                        <$orderCommonProductVirtual.FatherOrderDetail.ProductName$>
+                        <html:if expression="orderCommonProductVirtual.ChildOrderDetailList.Count>0">
+                        <div class="smallBox">
+                            <html:foreach expression="OrderDetailInfo orderDetail in orderCommonProductVirtual.ChildOrderDetailList"> 
+                            <html:csharp>ProductInfo childProduct = ProductBLL.ReadProductByProductList(productList, orderDetail.ProductID);</html:csharp>
+                            <div><span style="color:#BF0000">[ 配件 ]</span><img  src="<$childProduct.Photo.Replace("Original","60-60")$>"   onload="photoLoad(this,30,30)" style=" vertical-align:middle"/> <$orderDetail.ProductName$></div>
+                            </html:foreach>
+                        </div>
+                        </html:if>
+                    </td>
+                    <td style="width:80px"><$orderCommonProductVirtual.FatherOrderDetail.SendPoint$></td>
+                    <td style="width:80px"><$orderCommonProductVirtual.FatherOrderDetail.ProductWeight$> 克</td>
+                    <td style="width:80px">￥<$orderCommonProductVirtual.FatherOrderDetail.ProductPrice$></td>
+                    <td style="width:80px"><$orderCommonProductVirtual.FatherOrderDetail.BuyCount$></td>
+                    <td>￥<$orderCommonProductVirtual.FatherOrderDetail.ProductPrice*orderCommonProductVirtual.FatherOrderDetail.BuyCount$></td>
+                </tr>
+                </html:foreach>
+            </table>
+            <div class="height10"></div>  
+            <div class="checkOutTitle">费用信息</div>
+            <div class="checkOutLine"></div>
+            <div class="mony">产品金额：<$order.ProductMoney$> 元 - 优惠金额：<$order.FavorableMoney$> 元 + 物流费用：<$order.ShippingMoney$> 元 + 其它费用：<$order.OtherMoney$> 元 -余额：<$order.Balance$> 元 -优惠券：<$order.CouponMoney$> 元 <br />= 应付金额：<span><$OrderBLL.ReadNoPayMoney(order)$> 元</span></div>
+            <div class="height10"></div>        
+        </div>
+    </div>
+    <html:include file="Foot.htm" />
+</body>
+</html>

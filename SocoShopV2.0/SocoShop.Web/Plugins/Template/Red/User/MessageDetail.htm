@@ -1,0 +1,39 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+    <script language="javascript" type="text/javascript" src="/Admin/Js/Calendar.js" ></script>
+</head>
+<body>
+    <html:include file="Top.htm" />    
+    <div class="main">
+        <div class="left">       
+            <html:include file="/User/UserLeft.htm" />          
+        </div>
+        <div class="right">   
+            <div>用户中心 > 短信息</div>  
+            <div class="height10"></div>         
+            <div class="userTitle"></div>
+            <div class="add">
+                <ul>
+                    <li class="left">收件人：</li>
+                    <li class="right"><$sendMessage.ToUserName$></li>
+                </ul>
+                <ul>
+                    <li class="left">主题：</li>
+                    <li class="right"><$sendMessage.Title$></li>
+                </ul>
+                <ul>
+                    <li class="left">正文：</li>
+                    <li class="right"><$sendMessage.Content$></li>
+                </ul>  
+            </div>                   
+        </div>
+    </div>
+    <html:include file="Foot.htm" />
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+        <div class="left">
+            <div class="box help">
+                <html:csharp>int i=0; </html:csharp>
+                <html:foreach expression="ArticleClassInfo articleClass in helpClassList">
+                <html:if expression="i==0">
+                <div class="boxHead"><span><$articleClass.ClassName$></span></div>
+                <html:else>
+                <div class="boxTitle"><span><$articleClass.ClassName$></span></div>
+                </html:if>
+                <ul class="boxMain" >
+                    <html:foreach expression="ArticleClassInfo childArticleClass in ArticleClassBLL.ReadArticleClassChildList(articleClass.ID)">
+                    <li <html:if expression="id==childArticleClass.ID">class="selected"</html:if>><a href="/Help-I<$childArticleClass.ID$>.aspx"><$childArticleClass.ClassName$></a> </li>
+                    </html:foreach>
+                </ul>
+                <html:csharp> i++; </html:csharp>
+                </html:foreach>                
+            </div>           
+        </div>
+        <div class="right">
+            <div class="position">首页 > 帮助中心</div>
+            <div class="height10"></div>
+            <html:foreach expression="ArticleInfo article in articleList">
+            <div class="helpTitle"><$article.Title$></div>
+            <div class="helpContent"><$article.Content$></div>
+            </html:foreach>         
+        </div>
+    </div>
+    <html:include file="Foot.htm" />   
+</body>
+</html>

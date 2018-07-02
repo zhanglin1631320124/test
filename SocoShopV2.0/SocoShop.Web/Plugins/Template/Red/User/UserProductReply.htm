@@ -1,0 +1,40 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+    <script language="javascript" type="text/javascript" src="/Admin/Js/Calendar.js" ></script>
+</head>
+<body>
+    <html:include file="Top.htm" />    
+    <div class="main">
+        <div class="left">       
+            <html:include file="/User/UserLeft.htm" />          
+        </div>
+        <div class="right">   
+            <div>用户中心 >  我的回复</div>
+            <div class="height10"></div>
+            <div class="userTitle"></div>
+            <table class="listTable" cellpadding="0" cellpadding="0">
+                <tr class="listTableHead">                 
+                    <td>内容</td>
+                    <td width="120px">时间</td>
+                </tr>
+                <html:foreach expression="ProductReplyInfo productReply in productReplyList">
+                <tr class="listTableMain">                
+                    <td class="textLeft"><a href="/ProductReply-C<$productReply.CommentID$>.aspx" target="_blank"><$productReply.Content$></a></td>
+                    <td><$productReply.PostDate$></td>
+                </tr>
+                </html:foreach>               
+            </table>
+            <div class="height10"></div>
+            <$commonPagerClass.ShowPage()$>  
+            <div class="height10"></div>               
+        </div>
+    </div>
+    <html:include file="Foot.htm" />
+</body>
+</html>

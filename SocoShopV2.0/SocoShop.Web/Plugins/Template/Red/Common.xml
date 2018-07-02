@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Template>
+  <Path Value="Red"/>
+  <Name Value="红色火红"/>
+  <Photo Value="/Plugins/Template/Red/cover.jpg"/>  
+  <DisCreateFile Value=""/>
+  <CopyRight Value="SocoShop"/>
+  <PublishDate Value="2010-12-10"/>
+</Template>

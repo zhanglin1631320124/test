@@ -1,0 +1,113 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+    <script language="javascript" type="text/javascript" src="/Admin/Js/UnlimitClass.js" ></script>
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+        <form action="/CheckOut.aspx" method="post" name="form" >
+        <div class="step"><img src="<html:templatePath>/style/Images/cartStep2.gif" /></div>  
+        <div class="checkOutTitle">收货人信息</div>
+        <div class="checkOutLine"></div>
+        <div class="add checkOut">
+            <html:if expression="userAddressList.Count>0">
+            <ul>
+                <li class="left"> 地址簿：</li>
+                <li class="right"><select id="UserAddress" name="UserAddress" onchange="readUserAddress()"><html:foreach expression="UserAddressInfo tempUserAddress in userAddressList"><option <html:if expression="tempUserAddress.IsDefault==(int)BoolType.True">selected="selected"</html:if> value="<$tempUserAddress.ID$>"><$tempUserAddress.Consignee$> [<$RegionBLL.RegionNameList(tempUserAddress.RegionID)$>] <$tempUserAddress.Address$></option></html:foreach></select></li>
+            </ul> 
+            </html:if>
+            <div id="CheckOutAddressAjax"></div>
+        </div>
+        <div class="checkOutTitle">支付方式</div>
+        <div class="checkOutLine"></div>
+        <ul class="checkOutList">
+            <html:csharp>int i=0;</html:csharp>
+            <html:foreach expression="PayPluginsInfo payPlugins in payPluginsList">
+            <li><input type="radio" name="Pay" value="<$payPlugins.Key$>" <html:if expression="i==0"> checked="checked"</html:if> /> <$payPlugins.Name$> <span><$payPlugins.Description$></span></li>
+            <html:csharp>i++;</html:csharp>
+            </html:foreach>
+        </ul>
+        <div class="checkOutTitle">配送方式</div>
+        <div class="checkOutLine"></div>
+        <ul class="checkOutList" id="ShippingListAjax"></ul>
+        <div class="checkOutTitle">其他信息</div>
+        <div class="checkOutLine"></div>
+        <div class="add checkOut">
+            <html:if expression="base.UserID>0">
+            <ul>
+                <li class="left"> 余额支付：</li>
+                <li class="right"><input type="text" class="input" value="0"  style="width:100px" onchange="checkMoney(<$moneyLeft$>,this.value,this)"/> 您当前可用余额为：<span><$moneyLeft$></span> 元</li>
+            </ul>  
+            </html:if>
+            <ul>
+                <li class="left"> 优惠劵：</li>
+                <li class="right">
+                    <select id="UserCoupon" name="UserCoupon" onchange="selectUserCoupon()">
+                        <option value="0|0">请选择</option>
+                        <html:foreach expression="UserCouponInfo userCoupon in userCouponList">
+                        <option value="<$userCoupon.ID$>|<$userCoupon.Coupon.Money$>">编号：<$userCoupon.Number$> （<$userCoupon.Coupon.Money$> 元）</option>
+                        </html:foreach>
+                    </select> 
+                    如您有优惠券，请点击  <input type="checkbox" onclick="fillUserCoupon(this.checked)" /> <a>输入优惠券号码</a>  
+                </li>
+            </ul> 
+            <ul id="UserCouponDiv" style="display:none">
+                <li class="left"></li>
+                <li class="right">卡号：<input type="text" class="input" id="Number" style="width:120px" /> 密码：<input type="password" class="input" style="width:80px" id="Password" />  <input type="button" value="添加" class="button" onclick="addUserCoupon()" />  </li>
+            </ul>            
+            <ul>
+                <li class="left">订单留言：</li>
+                <li class="right"><input type="text" class="input" name="UserMessage" style="width:500px" /></li>
+            </ul> 
+            <ul>
+                <li class="left"> </li>
+                <li class="right">如果您需要发票，请点击 <input type="checkbox" onclick="needInvoice(this.checked)" /> <a>索要发票</a></li>
+            </ul> 
+            <div style="display:none" id="InvoiceDiv">
+            <ul>
+                <li class="left"> 发票标题：</li>
+                <li class="right"><input type="text" class="input" name="InvoiceTitle" style="width:300px" /> <span>*</span></li>
+            </ul>  
+            <ul>
+                <li class="left"> 发票内容：</li>
+                <li class="right"><input type="text" class="input" name="InvoiceContent" style="width:300px;" /></li>
+            </ul>  
+            </div>
+        </div>
+        <html:if expression="giftList.Count>0">
+        <div class="checkOutTitle">礼品信息</div>
+        <div class="checkOutLine"></div>
+        <div class="giftList">        
+            <html:foreach expression="GiftInfo gift in giftList">
+            <ul class="giftInfo">
+                <li class="photo"><img src="<$gift.Photo.Replace("Original","100-100")$>" onload="photoLoad(this,100,100)"  /></li>
+                <li class="name"><$gift.Name$></li>
+                <li><input type="radio" name="GiftID" value="<$gift.ID$>" /></li>
+            </ul>
+            </html:foreach>       
+        </div>        
+        <div class="height10"></div>  
+        </html:if>
+        <div class="checkOutTitle">费用信息</div>
+        <div class="checkOutLine"></div>
+        <input type="hidden" id="ProductMoney" name="ProductMoney" value="<$Sessions.ProductTotalPrice$>" />
+        <input type="hidden" id="FavorableMoney" name="FavorableMoney" value="0" />
+        <input type="hidden" id="ShippingMoney" name="ShippingMoney" value="0" />
+        <input type="hidden" id="Balance" name="Balance" value="0" />
+        <input type="hidden" id="CouponMoney" name="CouponMoney" value="0"/>
+        <input type="hidden" id="FavorableActivityID" name="FavorableActivityID" value="<$favorableActivity.ID$>" />
+        <div class="mony" id="MoneyDetail"></div>
+        <div class="height10"></div>  
+        <div class="cartOperate"><a href="/Cart.aspx"> <img src="<html:templatePath>/style/Images/cart.png"  />返回购物车</a> <input class="bigbutton" value="确定提交" type="submit"  onclick="return checkSubmit()" /><input type="hidden" name="Action" value="PostBack" /></div>     
+        </form>   
+    </div>    
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/CheckOut.js" ></script>
+    <html:include file="Foot.htm" />   
+</body>
+</html>

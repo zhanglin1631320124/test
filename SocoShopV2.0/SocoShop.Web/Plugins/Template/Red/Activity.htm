@@ -1,0 +1,62 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />   
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+        <div class="left todayActivity">
+            <html:if expression="favorableActivity.ID>0">
+            <ul>
+                <li class="title">今日优惠：<$favorableActivity.Name$></li>
+                <li>倒计时</li>
+                <li class="date" id="leftTime"></li>
+                <li> <input class="bigbutton" value="立即参与"  type="button" onclick="javascript:window.location='/FavorableActivityDetail-I<$favorableActivity.ID$>.aspx'"/></li>
+            </ul>
+            <html:else>
+            <ul>
+                <li class="oldTitle">以往优惠活动</li>
+                <html:csharp>int i=1;</html:csharp>
+                <html:foreach expression="FavorableActivityInfo tempFavorableActivity in favorableActivityList">  
+                <li class="list"><$i$>. <a href="/FavorableActivityDetail-I<$tempFavorableActivity.ID$>.aspx"><$tempFavorableActivity.Name$></a></li>
+                <html:csharp>i++;</html:csharp>
+                </html:foreach>
+            </ul>
+            </html:if>
+            <div class="more"><a href="/FavorableActivity.aspx">更多优惠</a></div>
+        </div>
+        <div class="right activityPlungs">
+            <div class="activityTitle">活动插件</div>
+            <div class="height10"></div>
+            <div class="activityList">
+                <html:foreach expression="ActivityPluginsInfo activityPlugins in activityPluginsList">  
+                <ul class="activityMain">
+                    <li class="photo"><a href="<$activityPlugins.ShowUrl$>" target="_blank"><img src=" <$activityPlugins.Photo$>"  onload="photoLoad(this,60,60)" /></a></li>
+                    <li class="name"><a href="<$activityPlugins.ShowUrl$>" target="_blank"><$activityPlugins.Name$></a> <$activityPlugins.Description$></li>   
+                </ul>
+                </html:foreach>
+            </div>
+        </div>
+        <div class="height10"></div>
+        <div class="activityTitle">特价礼品包</div>
+        <div id="GiftPackAjax"></div>
+        <div class="height10"></div>
+        <div class="activityTitle"> 商品专题</div>
+        <div id="ThemeActivityAjax"></div>        
+    </div>    
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/LeftTime.js" ></script>
+    <html:if expression="favorableActivity.ID>0">
+    <script language="javascript" type="text/javascript"> 
+        var gmt_end_time = <$leftTime$>;        
+        onload_leftTime();
+    </script>    
+    </html:if>
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/Activity.js" ></script>
+    <html:include file="Foot.htm" />   
+</body>
+</html>

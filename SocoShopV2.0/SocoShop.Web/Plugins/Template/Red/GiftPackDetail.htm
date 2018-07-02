@@ -1,0 +1,52 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+        <div class="left">
+            <div class="box">
+                <div class="boxHead"><span>组装礼品包</span></div>
+                <div id="GiftPackDetailAjax"></div>
+            </div>           
+        </div>
+        <div class="right">
+            <div class="giftPackName"><$giftPack.Name$></div>
+            <div class="giftPackTime">活动时间：<$giftPack.StartDate.ToString("yyyy-MM-dd")$> 到 <$giftPack.EndDate.ToString("yyyy-MM-dd")$></div>
+            <div class="giftPackPrice">价格：<$giftPack.Price$></div>
+            <html:for init="int k=0" condtion="k<nameArray.Length" expression="k++">
+            <div class="giftPackBlock">礼品组：<$nameArray[k]$> ；购买数量：<$countArray[k]$></div>
+            <div class="productBox">
+                <html:csharp>int i=0;</html:csharp>
+                <html:foreach expression="string temp in productArray[k].Split(',')">    
+                <html:csharp>ProductInfo product=ProductBLL.ReadProductByProductList(productList,Convert.ToInt32(temp));</html:csharp>
+                <ul class="productPicture">
+                    <li class="photo"><a href="/ProductDetail-I<$product.ID$>.aspx"><img src="<$product.Photo.Replace("Original","120-120")$>"  onload="photoLoad(this,120,120)" /></a></li>
+                    <li><a href="/ProductDetail-I<$product.ID$>.aspx"><$product.Name$></a></li>
+                    <html:if expression="giftPack.StartDate<=DateTime.Now && DateTime.Now<=giftPack.EndDate">
+                    <li><input type="button" class="button" value=" 添 加 " onclick="addGiftPack(<$giftPack.ID$>,<$k$>,<$countArray[k]$>,<$product.ID$>,'<$product.Photo$>','<$product.Name$>')" /></li>
+                    </html:if>
+                </ul> 
+                <html:csharp>i++;</html:csharp>  
+                <html:if expression="i%5==0">
+                </div><div class="productBox">
+                </html:if> 
+                </html:foreach>
+            </div>
+            </html:for>
+        </div>
+    </div>
+    <html:include file="Foot.htm" />  
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/GiftPackDetail.js" ></script>
+    <script language="javascript">
+        var giftPackID=<$giftPack.ID$>;
+        showGiftPack();
+    </script>
+</body>
+</html>

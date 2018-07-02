@@ -1,0 +1,52 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+        <div class="left">
+            <div class="box">
+                <div class="boxHead"><span>品牌推荐</span></div>
+                <div class="boxMain leftBrand" >
+                    <html:foreach expression="ProductBrandInfo tempProductBrand in topProductBrandList">
+                    <html:if expression="tempProductBrand.Url==string.Empty">
+                    <a href="/BrandDetail-I<$tempProductBrand.ID$>.aspx"><img src="<$tempProductBrand.Logo.Replace("Original","88-31")$>" onload="photoLoad(this,88,31)" /></a>
+                    <html:else>
+                    <a href="<$tempProductBrand.Url$>"><img src="<$tempProductBrand.Logo.Replace("Original","88-31")$>" onload="photoLoad(this,88,31)" /></a>
+                    </html:if>
+                    </html:foreach>
+                    <div class="clear"></div>
+                    <span class="more"><a href="/Brand.aspx">品牌专区>></a> </span>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <ul class="brandTitle">
+                <li class="photo"><img src="<$productBrand.Logo$>" onload="photoLoad(this,138,46)"/><br /><$productBrand.Name$></li>
+                <li class="content">
+                    <strong>品牌介绍：</strong><$productBrand.Description$> <input class="bigbutton" value="查看产品"  type="button" onclick="window.location='/Product-B<$productBrand.ID$>.aspx'"/>
+                </li>
+            </ul>    
+            <div class="height10"></div>
+            <div class="productTitle"><span class="productText">推荐产品</span><span class="productMore"><a href="/Product-B<$productBrand.ID$>.aspx">更多产品</a></span></div>
+            <div class="productBox">
+                <html:foreach expression="ProductInfo product in productList">
+                <ul class="productPicture">
+                    <li class="photo"><a href="ProductDetail-I<$product.ID$>.aspx"><img src="<$product.Photo.Replace("Original","120-120")$>" onload="photoLoad(this,120,120)"/></a></li>
+                    <li><a href="ProductDetail-I<$product.ID$>.aspx"><$product.Name$></a></li>
+                    <li class="maketPrice">市场价：￥<$product.MarketPrice$> </li>
+                    <li class="salePrice">售价：￥<$MemberPriceBLL.ReadCurrentMemberPrice(memberPriceList,base.GradeID,product)$></li>
+                </ul>
+                </html:foreach>
+            </div>        
+        </div>
+    </div>
+    <html:include file="Foot.htm" />
+</body>
+</html>

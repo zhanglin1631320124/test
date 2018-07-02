@@ -1,0 +1,52 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+    <script language="javascript" type="text/javascript" src="/Admin/Js/Calendar.js" ></script>
+</head>
+<body>
+    <html:include file="Top.htm" />    
+    <div class="main">
+        <form action="/User/UserProductComment.aspx" method="post" name="form" >
+        <div class="left">       
+            <html:include file="/User/UserLeft.htm" />          
+        </div>
+        <div class="right">   
+            <div>用户中心 >  我的评论</div>
+            <div class="height10"></div>
+            <div class="userTitle"></div>
+            <table class="listTable" cellpadding="0" cellpadding="0">
+                <tr class="listTableHead">
+                    <td width="40px">状态</td>                    
+                    <td>标题</td>
+                    <td width="40px">评分</td>
+                    <td width="120px">评论时间</td>
+                    <td width="50px">支持数</td>
+                    <td width="50px">反对数</td>
+                    <td width="50px">回复数</td>
+                </tr>
+                <html:foreach expression="ProductCommentInfo productComment in productCommentList">
+                <tr class="listTableMain">
+                    <td><$ProductCommentBLL.ReadCommentStatus(productComment.Status)$></td>                    
+                    <td class="textLeft"><a href="/ProductReply-C<$productComment.ID$>.aspx" target="_blank"><$productComment.Title$></a></td>
+                    <td><$productComment.Rank$></td>
+                    <td><$productComment.PostDate$></td>
+                    <td><$productComment.Support$></td>
+                    <td><$productComment.Against$></td>
+                    <td><$productComment.ReplyCount$></td>
+                </tr>
+                </html:foreach>               
+            </table>
+            <div class="height10"></div>
+            <$commonPagerClass.ShowPage()$>  
+            <div class="height10"></div>               
+        </div>
+        </form>
+    </div>
+    <html:include file="Foot.htm" />
+</body>
+</html>

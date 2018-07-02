@@ -1,0 +1,20 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" /> 
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+        <div class="step"><img src="<html:templatePath>/style/Images/cartStep1.gif" /></div>  
+        <div id="CartProductAjax"></div>
+        <div class="cartOperate"><a href="/Product.aspx"> <img src="<html:templatePath>/style/Images/cart.png"  />继续购物</a>  <a href="javascript:clearCart()"> <img src="<html:templatePath>/style/Images/delete.gif" /> 清空购物车</a> <input class="bigbutton" value="立即结算"  type="button" onclick="window.location.href='/CheckOut.aspx'" /></div>        
+    </div>
+    <html:include file="Foot.htm" />  
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/Cart.js" ></script> 
+</body>
+</html>

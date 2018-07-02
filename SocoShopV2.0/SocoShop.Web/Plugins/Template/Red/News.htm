@@ -1,0 +1,38 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+        <div class="left">
+            <div class="box">
+                <div class="boxHead"><span>热门新闻</span></div>
+                <ul class="boxMain article" >
+                    <html:foreach expression="ArticleInfo article in topArticleList">
+                    <li><a href="<html:if expression="article.Url==string.Empty">/NewsDetail-I<$article.ID$>.aspx<html:else><$article.Url$></html:if>"><$StringHelper.Substring(article.Title,11)$></a> </li>
+                    </html:foreach>
+                </ul>
+            </div>        
+        </div>
+        <div class="right">
+            <div class="position">首页 > 新闻资讯</div>
+            <div class="height10"></div>
+            <html:foreach expression="ArticleInfo article in articleList">
+            <ul class="newsList">
+                <li class="newsTitle"><a href="<html:if expression="article.Url==string.Empty">/NewsDetail-I<$article.ID$>.aspx<html:else><$article.Url$></html:if>"><$article.Title$></a> <span>时间：<$article.Date.ToString("yyyy-MM-dd")$> </span></li>
+                <li><a href="<html:if expression="article.Url==string.Empty">/NewsDetail-I<$article.ID$>.aspx<html:else><$article.Url$></html:if>"><html:if expression="article.Summary==string.Empty"><$StringHelper.Substring(StringHelper.KillHTML(StringHelper.UBB(article.Content)), 120)$><html:else><$article.Summary$></html:if></a> </li>
+            </ul>
+            <div class="newsLine"></div>
+            </html:foreach>
+            <$commonPagerClass.ShowPage()$>
+        </div>
+    </div>
+    <html:include file="Foot.htm" />   
+</body>
+</html>

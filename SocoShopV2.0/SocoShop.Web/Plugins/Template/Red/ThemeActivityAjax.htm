@@ -1,0 +1,15 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<html:foreach expression="ThemeActivityInfo themeActivity in themeActivityList">     
+<ul class="themeActivity">
+     <li class="photo"><a href="/ThemeActivityDetail-I<$themeActivity.ID$>.aspx" target="_blank"><img src="<$themeActivity.Photo.Replace("Original","300-150")$>" onload="photoLoad(this,300,150)" /></a></li>
+     <li class="name"><a href="/ThemeActivityDetail-I<$themeActivity.ID$>.aspx" target="_blank"><$themeActivity.Name$></a></li>    
+</ul> 
+</html:foreach>  
+<html:if expression="ajaxPagerClass.Count>6">
+<div class="height10"></div>
+<$ajaxPagerClass.ShowPage()$>
+</html:if>  
+   

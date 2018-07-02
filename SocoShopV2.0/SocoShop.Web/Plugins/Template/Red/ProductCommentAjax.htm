@@ -1,0 +1,43 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<div class="height10"></div>
+<html:foreach expression="ProductCommentInfo productComment in productCommentList">
+<div class="productComment">
+    <ul class="userInfo">
+        <html:if expression="productComment.UserID>0">
+        <html:csharp>
+            UserInfo tempUser=UserBLL.ReadUserByUserList(userList,productComment.UserID);
+            string userPhoto = tempUser.Photo;
+            if (userPhoto == string.Empty)
+            {
+                userPhoto = "/Plugins/Template/" + ShopConfig.ReadConfigInfo().TemplatePath + "/Style/Images/NoImage.gif";
+            }
+            else
+            {
+                userPhoto = userPhoto.Replace("Original", "70-70");
+            }
+        </html:csharp>
+        <li class="photo"><img src="<$userPhoto$>"  onload="photoLoad(this,70,70)"/></li>
+        <li class="name"><$productComment.UserName$></li>
+        <li><a href="javascript:addFriend(<$productComment.UserID$>)"><img src="<html:templatePath>/style/images/addFriend.gif" /> 加为好友</a></li>
+        <html:else>
+        <li class="photo"><img src="<html:templatePath>/Style/Images/NoImage.gif" onload="photoLoad(this,70,70)" /></li>
+        <li class="name">匿名用户</li>
+        </html:if>
+    </ul>
+    <ul class="commentContent">
+        <li class="name"><$productComment.Title$> <span><a href="/ProductReply-C<$productComment.ID$>.aspx">回复(<strong><$productComment.ReplyCount$></strong>)</a>　<a href="javascript:support(<$productComment.ID$>)">有用(<strong id="Support<$productComment.ID$>"><$productComment.Support$></strong>)</a>　<a href="javascript:against(<$productComment.ID$>)">没用(<strong  id="Against<$productComment.ID$>"><$productComment.Against$></strong>)</a></span></li>
+        <li class="border1"></li>
+        <li>评分：<html:for init="int k=1" condtion="k<=productComment.Rank" expression="k++"><img src="<html:templatePath>/Style/Images/s1.gif" /></html:for><html:for init="int m=productComment.Rank+1" condtion="m<=5" expression="m++"><img src="<html:templatePath>/Style/Images/s0.gif" /></html:for></li>
+        <li><$productComment.Content$></li>
+        <html:if expression="productComment.AdminReplyContent!=string.Empty">
+        <li class="adminReplyContent">管理员回复：<$productComment.AdminReplyContent$></li>
+        </html:if>
+    </ul>
+</div>
+<div class="height10"></div>
+</html:foreach>
+<$ajaxPagerClass.ShowPage()$>
+<div class="height10"></div>

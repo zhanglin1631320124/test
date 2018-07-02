@@ -1,0 +1,92 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+        <div class="left">
+            <div class="box">
+                <div class="boxHead"><span>网友评论</span></div>
+                <div class="boxMain" >
+                    <div class="productPhoto"><a href="/ProductDetail-I<$product.ID$>.aspx"><img src="<$product.Photo.Replace("Original","340-340")$>" onload="photoLoad(this,180,180)"/></a></div>
+                    <html:foreach expression="ProductCommentInfo tempProductComment in productCommentList">
+                    <ul class="productComment">
+                        <li class="line"></li>
+                        <li class="title"><a href="/ProductReply-C<$tempProductComment.ID$>.aspx"><$tempProductComment.Title$></a> </li>
+                        <li class="content"><$tempProductComment.Content$></li>
+                    </ul>
+                    </html:foreach>
+                </div>
+            </div>           
+            <div class="height10"></div>
+            <div class="box">
+                <div class="boxHead"><span>浏览过的商品</span></div>
+                <div class="boxMain">
+                    <html:foreach expression="ProductInfo tempProduct in tempProductList">
+                    <ul class="smallProduct">
+                        <li class="photo"><a href="/ProductDetail-I<$tempProduct.ID$>.aspx"><img src="<$tempProduct.Photo.Replace("Original","60-60")$>" onload="photoLoad(this,60,60)" /></a> </li>
+                        <li class="text"><a href="/ProductDetail-I<$tempProduct.ID$>.aspx"><$StringHelper.Substring(tempProduct.Name,15)$></a> <br />￥<$MemberPriceBLL.ReadCurrentMemberPrice(tempMemberPriceList,base.GradeID,tempProduct)$> </li>
+                    </ul>
+                    </html:foreach>   
+                </div>
+            </div>
+        </div>
+        <div class="right">  
+            <div class="productComment">
+                <ul class="userInfo">                    
+                    <html:if expression="productComment.UserID>0">
+                    <html:csharp>
+                        UserInfo tempUser=UserBLL.ReadUser(productComment.UserID);
+                        string userPhoto = tempUser.Photo;
+                        if (userPhoto == string.Empty)
+                        {
+                            userPhoto = "/Plugins/Template/" + ShopConfig.ReadConfigInfo().TemplatePath + "/Style/Images/NoImage.gif";
+                        }
+                        else
+                        {
+                            userPhoto = userPhoto.Replace("Original", "70-70");
+                        }
+                    </html:csharp>
+                    <li class="photo"><img src="<$userPhoto$>"  onload="photoLoad(this,70,70)"/></li>
+                    <li class="name"><$productComment.UserName$></li>
+                    <li><a href="javascript:addFriend(<$productComment.UserID$>)"><img src="<html:templatePath>/style/images/addFriend.gif" /> 加为好友</a></li>
+                    <html:else>
+                    <li class="photo"><img src="<html:templatePath>/Style/Images/NoImage.gif" onload="photoLoad(this,70,70)" /></li>
+                    <li class="name">匿名用户</li>
+                    </html:if>
+                </ul>
+                <ul class="commentContent">
+                    <li class="name"><$productComment.Title$> <span><a href="/ProductReply-C<$productComment.ID$>.aspx">回复(<strong><$productComment.ReplyCount$></strong>)</a>　<a href="javascript:support(<$productComment.ID$>)">有用(<strong id="Support<$productComment.ID$>"><$productComment.Support$></strong>)</a>　<a href="javascript:against(<$productComment.ID$>)">没用(<strong  id="Against<$productComment.ID$>"><$productComment.Against$></strong>)</a></span></li>
+                    <li class="border1"></li>
+                    <li>评分：<html:for init="int k=1" condtion="k<=productComment.Rank" expression="k++"><img src="<html:templatePath>/Style/Images/s1.gif" /></html:for><html:for init="int m=productComment.Rank+1" condtion="m<=5" expression="m++"><img src="<html:templatePath>/Style/Images/s0.gif" /></html:for></li>
+                    <li><$productComment.Content$></li>
+                </ul>
+            </div>
+            <div class="height10"></div>          
+            <div class="productCommentTitle"> 网友回复</div>
+            <div id="ProductReplyAjax"></div>            
+            <div class="postComment">
+                <ul>
+                    <li>内容：不要发表违规信息，请自觉遵守互联网相关政策法规。 <textarea  id="content" class="input"></textarea></li>
+                    <div class="height10"></div>
+                    <li><input type="button" class="button" value="回复" onclick="postReply()" /></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <html:include file="Foot.htm" /> 
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/ProductDetail.js" ></script>
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/ProductReply.js" ></script>
+    <script language="javascript">
+        var productID=<$product.ID$>;
+        var commentID=<$productComment.ID$>;
+        readProductReply();
+    </script> 
+</body>
+</html>

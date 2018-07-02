@@ -1,0 +1,395 @@
+﻿/**全局设置**/
+body,form,input,button,h1,h2,h3,h4,h5,h6,h7,p,ul,ol,dl,dt,dd,div,textarea {
+	 padding:0; margin:0;color:#4C5A62; font-size:12px;
+}
+ul,ol,li {
+	list-style-type:none;
+}
+a {
+	color: #4C5A62; text-decoration: none; 
+}
+a:hover {
+	color: #A40102; text-decoration: none;
+}
+em{
+	  color:#FF8F00; font-weight:bold; font-style:normal;
+}
+img{
+	border:0px;
+}
+.clear{
+	 clear:both;
+}
+.input {
+	height: 17px;
+	font-size: 12px;
+	padding: 3px 2px 0px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #808080 #D4D0C8 #D4D0C8 #808080;
+	width:90px;
+}
+.button {
+	border: none;
+	font-size: 12px;
+	height: 18px;
+	margin: 0;
+	background: #FFF url(Images/button.png) top left repeat-x;
+	line-height: 18px;
+	color: #FFF;
+	width:53px;
+}
+.bigbutton {
+	border: none;
+	font-size: 13px;
+	height: 30px;
+	margin: 0;
+	background: #FFF url(Images/bigbutton.png) top left repeat-x;
+	line-height: 30px;
+	color: #FFF;
+	width:80px;
+	text-align:center;
+	font-weight:bold;
+}
+.height10
+{
+	line-height:10px; height:10px; width:100%; clear:both; overflow:hidden;
+	}
+/*顶部*/
+.top {
+	width: 100%; height: 148px;margin: 0px auto;overflow: hidden;  min-width:960px; 
+}
+.top .tips{
+	background-color:#F8F8F8; margin:0px auto; border-bottom:#D1D1D1 1px solid; text-align:right;height:22px;overflow: hidden;
+}
+.top .tips p{
+	height:22px; line-height:22px; width: 960px;  text-align:right;margin:0px auto;  color:#999999; 
+}
+.top .logo {
+	width: 960px; height: 60px; margin: 0px auto;overflow: hidden;
+}
+.top .logo h1 {
+	float: left; padding-top:5px;
+}
+.top .logo p {
+	float: right; width: 280px; line-height: 25px; height: 75px; text-align: right;
+}
+.top .logo p strong {
+	font-size:13px; font-weight:bold; line-height:30px;
+}
+.top .logo p span {
+	color: #A10000; font-size:26px; font-weight:bold;
+}
+.wrap {
+	padding: 0; margin: 0px auto; width: 960px;  height: auto; text-align: left;
+}
+.topmenu {
+	padding-bottom: 0px; margin:0px auto; width: 960px; padding-top: 0px; height: 36px;  background:url(Images/menuBg.png) repeat-x;
+}
+.topmenu li {
+	float: left; padding: 0px; margin: 0px; font-size:14px;
+}
+.topmenu li a {
+	padding-right: 15px; display: block; padding-left: 15px; font-weight: bold; float: left; padding-bottom: 0px; margin: 0px; color: #eee; line-height: 36px; padding-top: 0px; height: 36px; text-decoration:none;
+}
+.topmenu li a:hover {
+	padding-right: 15px; display: block; padding-left: 15px;  background-repeat:no-repeat; float: left; padding-bottom: 0px; margin: 0px; color: #fff; line-height: 36px; padding-top: 0px; height: 36px
+}
+.topmenu span {
+	 float:right; background-color:#fff; margin:6px 7px 5px 7px; padding:0px 5px 0 5px; overflow:hidden; height:22px;padding-bottom:2px;
+}
+.topmenu span a ,.topmenu span a:hover{
+	 color:#4C5A62; font-size:12px; font-weight:normal; margin:0px; padding:0px;line-height:22px;  height:22px; overflow:hidden;
+}
+.topmenu span a img{
+	  vertical-align:bottom; margin:0px; padding:0px;
+}
+.topmenu span  strong{
+	  font-weight:bold; font-size:16px; color:#A40102;
+}
+.wrap .search {
+	padding-bottom: 0px; margin: 0px auto; width:960px; padding-top: 0px; height: 30px; background-color:#F5F5F5;  line-height:30px; float:left;
+}
+.wrap .search select {
+	 margin-left:20px; vertical-align:middle; margin-right:10px;
+}
+.wrap .search span{
+	 margin-left:10px; color:#999999;
+}
+.wrap .search a{
+	 margin-left:5px;
+}
+.topAd
+{
+	margin: 0px 0px 10px 0px; 
+}
+/**中间框架结构**/
+.main{
+	margin: 10px auto 0px; overflow: hidden; width: 960px
+}
+.left{
+	float: left; overflow: hidden; width: 200px
+}
+.right{
+	float: right; overflow: hidden; width:750px;
+}
+/**底部**/
+.foot {
+	overflow: hidden; width: 100%; margin-top: 10px; margin-bottom:5px;
+}
+.foot .block {
+	margin: 0px auto; width: 950px; 
+}
+.foot .block .help {
+	 border-top:1px solid #A00200; padding:4px 0 4px 0; display:block; width:100%;  
+}
+.foot .block .help ul {
+	  float:left; width:146px; padding:6px; line-height:22px; 
+}
+.foot .block .help ul li{
+	   padding-left:10px;
+}
+.foot .block .help .title {
+	font-weight:bold; font-size:14px; padding-left:0px; color:#999999
+}
+.foot .block .redLine {
+	 height:1px; line-height:1px; overflow:hidden; background-color:#A00200; width:100%;
+}
+.foot .block .message {
+	text-align:center; margin-top:10px;
+}
+.foot .block .copy {
+	text-align:center;clear: both; margin-top: 10px; WHITE-SPACE: nowrap;color: #4c5a62
+}
+.foot .block .processTime {
+	font-size:10px; text-align:center; margin-top: 5px;
+}
+
+
+/**leftBox**/
+.box{
+	width: 198px; border: #E6E6E6 1px solid; padding-bottom:6px; overflow:hidden;
+}
+.box .boxHead {
+	font-size: 12px; background: url(images/title.png) repeat-x 0px 0px; width: 198px;  line-height: 28px; height: 28px; border-bottom:#E6E6E6 1px solid;
+}
+.box .boxHead span {
+	padding-left: 6px; font-weight: bold; height: 28px; font-size:13px;
+}
+.box .boxMain {
+	padding-right: 6px; padding-left: 6px;  padding-bottom: 0px; padding-top: 5px; width: auto; float:left; overflow:hidden;
+}
+.box .boxMain li {
+	padding-left: 6px;float: left; line-height: 22px;  width:186px
+}
+.box .article  li {
+	 list-style-type:disc; list-style-position:inside;
+}
+.box .boxMain .first{
+	padding-left: 0px;
+}
+.box .boxMain .first a{
+	color:#A10000; font-weight:bold;
+}
+.box .boxMain .second{
+	padding-left: 30px;
+}
+.box .boxMain .second a{
+	 margin-right:15px; display:block;
+}
+.box .boxMain li a {
+	text-decoration: none;
+}
+.box .boxMain li a:hover {
+	text-decoration: underline
+}
+.box div.boxMain {
+	 text-align:center;
+}
+.box div.tag a{
+	  margin:5px; line-height:28px;
+}
+.box div.tag .list{
+	   margin-bottom:10px;
+}
+.box div.tag {
+	  text-align:left;
+}
+.box div.vote {
+	  text-align:left;
+}
+.box .leftBrand  {
+	   padding-right: 2px; padding-left: 0px; float: left; padding-bottom: 0px; 
+}
+.box .leftBrand a {
+	   border:#EFEFEF 1px solid;  height:31px;line-height:31px; display:block; float:left; margin-left:6px; margin-top:6px; *margin-left:4px; *margin-top:4px; width:88px; text-align:left;
+}
+.box .leftBrand .more {
+	    float:right; width:80px;
+}
+.box .leftBrand .more  a{
+	    border:none;  height:20px;line-height:20px;
+}
+.box .productClass .more {
+	    margin-left:110px;
+}
+.box .brand img {
+	  margin:2px; border:#EFEFEF 1px solid; width:88px;  height:31px;
+}
+.box .boxTitle{
+	 display:block; background-color:#F5F5F5; clear:both; padding-left: 6px; font-weight: bold; height: 28px; line-height:28px;font-size:13px; border-bottom:#E6E6E6 1px solid; border-top:#E6E6E6 1px solid;
+}
+.help .boxMain li
+{
+	line-height:26px; padding-left:10px;  list-style-position:inside; list-style-type:disc;
+}
+.help .boxMain .selected a
+{
+	 font-weight:bold; color:#A10000;
+}
+.box .boxMain .smallProduct
+{
+	width:100%; height:70px; display:block; overflow:hidden; margin-top:5px; margin-bottom:5px;
+	}
+.box .boxMain .smallProduct .photo
+{
+	 width:60px; float:left;  height:60px;border:#E6E6E6 1px solid; padding:2px;text-align:left;
+}
+.box .boxMain .smallProduct .text
+{
+	float:left; width:105px; text-align:left;
+}
+.box .boxMain .productPhoto
+{
+	 text-align:left; width:180px; height:180px; padding:2px; margin-right:10px;
+}
+.box .boxMain .productComment
+{
+	  text-align:left;
+}
+.box .boxMain .productComment .line
+{
+	  border-top:1px dashed #ccc; 
+}
+.box .boxMain .productComment .title a
+{
+	   color:#A10000; font-weight:bold; font-size:13px;
+}
+.user .boxMain li
+{
+	line-height:26px; padding-left:20px;  list-style-position:inside; list-style-type:disc;
+}
+.user .boxHead
+{
+	 border-top:#E6E6E6 1px solid;
+}
+.user .userPhoto
+{
+	height:190px; overflow:hidden;  padding-top:4px; width:100%;padding-bottom:4px; padding-left:4px;
+}
+.boxMain .productName
+{
+	line-height:25px; text-align:center;
+	}
+.boxMain .deleteButton
+{
+	line-height:25px; text-align:center; border-bottom:1px solid #E6E6E6; padding-bottom:10px; width:180px;
+	}
+.boxMain .cartButton
+{
+	 margin-left:100px; margin-top:10px;
+	}
+.boxMain .giftPackTips
+{
+	   line-height:150px; text-align:center; font-size:13px; font-weight:800; color:#A40102;
+	}
+/*分页控件样式*/
+.pageCss{
+	 margin-right:2px; float:right;  
+} 
+.pageCss .disCount,.pageCss .prenextType,.pageCss .numType,.pageCss .listType{
+	border:none; margin:0px; padding:0px; width:auto; height:auto; float:left;
+}       
+.pageCss .disCount li,.pageCss .prenextType li,.pageCss .numType li,.pageCss .listType li{ 
+	border:solid 1px #E6E6E6; margin:1px; float:left; padding:1px 5px 1px 5px; line-height:20px;overflow:hidden;
+}
+.pageCss a {
+	text-decoration:none; color:#4C5A62
+}
+.pageCss select {
+	height:18px;
+}
+#currentPage {
+	background-color:#E6E6E6; font-weight:800; color:#A00200;
+}
+/**表格**/
+.listTable
+{
+	width:100%; border-collapse:collapse;
+}
+.listTableHead
+{
+	width: 100%; background-color:#F5F5F5; height:25px; line-height:25px;
+}
+.listTableHead td
+{
+	 text-align:center;color:#4C5A62; font-weight:800;border:#E6E6E6 1px solid;
+}
+.listTableMain
+{
+	width: 100%; height:28px; line-height:28px;  overflow:hidden;
+}
+.listTableMain td
+{
+	text-align:center;border-right:#E6E6E6 1px solid;border-bottom:#E6E6E6 1px solid;border-left:#E6E6E6 1px solid;
+}
+.listTableMain .textLeft
+{
+	text-align:left;border-right:#E6E6E6 1px solid;border-bottom:#E6E6E6 1px solid;border-left:#E6E6E6 1px solid; padding-left:5px;
+}
+/**添加**/
+.add 
+{
+	margin-bottom:10px;
+}
+.add ul {
+	background: #fff;
+	padding: 0;
+	margin-top: -1px;
+	list-style: none;
+	overflow: hidden;
+	zoom: 1;
+}
+.add ul li {
+	float: left;
+	padding-top: 5px;
+	padding-left: 0;
+	padding-right: 0;
+	padding-bottom: 1005px;
+	margin-bottom: -1000px;
+	zoom: 1;
+	overflow: hidden;	
+}
+.add ul .left {
+	width: 120px;
+	text-align: right;
+	padding-right: 10px;
+	padding-top: 8px;
+	margin-top: 1px;
+	margin-right: 1px;
+	font-weight: 800;
+}
+.add ul .right {
+	width: auto;
+	padding-left: 10px;
+	margin-left: -1px;
+	overflow:hidden;
+	line-height:22px;
+}
+.add .foot {
+	width: 100%;
+	background: #FCFCFC;
+	margin-top: -1px;
+	text-align: center;
+	zoom: 1;
+}

@@ -1,0 +1,50 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<html:switch name="action">
+    <html:case value=""NotUse"">    
+    <html:case value=""HasUse"">
+    <table class="listTable" cellpadding="0" cellpadding="0">
+        <tr class="listTableHead">                               
+            <td width="30%" style="text-align:left;padding-left:5px;">卡号</td>
+            <td width="10%">面值(元)</td>
+            <td width="20%">单次最低消费(元)</td>
+            <td width="25%">有效时间</td>
+            <td width="15%">消费状态</td>
+        </tr>
+        <html:foreach expression="UserCouponInfo userCoupon in userCouponList">
+        <html:csharp>
+            CouponInfo coupon=CouponBLL.ReadCouponByCouponList(couponList,userCoupon.CouponID);
+        </html:csharp>
+        <tr class="listTableMain">                             
+            <td style="text-align:left;padding-left:5px;"><$userCoupon.Number $></td>
+            <td><$coupon.Money $></td>
+            <td><$coupon.UseMinAmount $></td>
+            <td><$coupon.UseStartDate.ToString("yyyy-MM-dd")$> 到 <$coupon.UseEndDate.ToString("yyyy-MM-dd")$></td>            
+            <td><html:if expression="userCoupon.IsUse==1">已消费<html:else>未消费</html:if></td>
+        </tr>
+        </html:foreach>               
+    </table>
+    <div class="height10"></div>
+    <div><$ajaxPagerClass.ShowPage()$></div>
+    <html:break>
+    
+    <html:case value=""AddCoupon"">
+    <div class="sendMsg">
+        <dl>
+            <dt>卡号</dt>
+            <dd><input type="text" class="input" style="width:200px" id="Number" /></dd>
+        </dl>
+        <dl>
+            <dt>密码</dt>
+            <dd><input type="password" class="input" style="width:200px" id="Password" /></dd>
+        </dl>
+        <dl>
+            <dt>&nbsp;</dt>
+            <dd><input type="button" class="button" value="确定" onclick="addUserCoupon()" /></dd>
+        </dl>
+    </div>
+    <html:break>    
+    <html:default><html:break>  
+</html:swith>

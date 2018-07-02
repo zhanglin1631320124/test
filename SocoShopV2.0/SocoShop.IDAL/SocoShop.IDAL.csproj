@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{423A54D8-719A-4FEC-A4A7-B3893AAB64BB}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>SocoShop.IDAL</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Compile Include="ICoupon.cs" />
+    <Compile Include="IAttributeClass.cs" />
+    <Compile Include="IUserRecharge.cs" />
+    <Compile Include="IUserCoupon.cs" />
+    <Compile Include="IShippingRegion.cs" />
+    <Compile Include="IVoteRecord.cs" />
+    <Compile Include="IProductCollect.cs" />
+    <Compile Include="IStandard.cs" />
+    <Compile Include="IFavorableActivity.cs" />
+    <Compile Include="IGiftPack.cs" />
+    <Compile Include="IThemeActivity.cs" />
+    <Compile Include="IUpload.cs" />
+    <Compile Include="IUserFriend.cs" />
+    <Compile Include="IUserGrade.cs" />
+    <Compile Include="IProductComment.cs" />
+    <Compile Include="ISendMessage.cs" />
+    <Compile Include="IRegion.cs" />
+    <Compile Include="IOrderAction.cs" />
+    <Compile Include="IShipping.cs" />
+    <Compile Include="IUserApply.cs" />
+    <Compile Include="IVoteItem.cs" />
+    <Compile Include="IMenu.cs" />
+    <Compile Include="IVote.cs" />
+    <Compile Include="IAttribute.cs" />
+    <Compile Include="IProductPhoto.cs" />
+    <Compile Include="ICart.cs" />
+    <Compile Include="IGift.cs" />
+    <Compile Include="IOrder.cs" />
+    <Compile Include="IMemberPrice.cs" />
+    <Compile Include="IProductClass.cs" />
+    <Compile Include="IAdminLog.cs" />
+    <Compile Include="IUserAccountRecord.cs" />
+    <Compile Include="IUser.cs" />
+    <Compile Include="IAttributeRecord.cs" />
+    <Compile Include="IStandardRecord.cs" />
+    <Compile Include="IFlash.cs" />
+    <Compile Include="ITags.cs" />
+    <Compile Include="IEmailSendRecord.cs" />
+    <Compile Include="IOrderDetail.cs" />
+    <Compile Include="IBookingProduct.cs" />
+    <Compile Include="ILink.cs" />
+    <Compile Include="IArticleClass.cs" />
+    <Compile Include="IAdRecord.cs" />
+    <Compile Include="IFlashPhoto.cs" />
+    <Compile Include="IAd.cs" />
+    <Compile Include="IUserAddress.cs" />
+    <Compile Include="IProduct.cs" />
+    <Compile Include="IAdmin.cs" />
+    <Compile Include="IUserMessage.cs" />
+    <Compile Include="IArticle.cs" />
+    <Compile Include="IProductReply.cs" />
+    <Compile Include="IReceiveMessage.cs" />
+    <Compile Include="IProductBrand.cs" />
+    <Compile Include="IAdminGroup.cs" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SocoShop.Entity\SocoShop.Entity.csproj">
+      <Project>{09D1C5BE-BE56-4F95-96FE-B43C2C2B4B05}</Project>
+      <Name>SocoShop.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,48 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+        <form action="/User/Login.aspx" method="post" name="form" >
+        <html:if expression="result!=string.Empty">
+        <div class="alertMessage"><$result$></div>
+        </html:if>
+        <div class="loginTitle">用户登录</div>
+        <input type="hidden" name="RedirectUrl" value="<$redirectUrl$>" />
+        <div class="add login">
+            <ul>
+                <li class="left">用户名：</li>
+                <li class="right"><input type="text" class="input" style="width:120px" name="UserName" id="UserName" /></li>
+            </ul>  
+            <ul>
+                <li class="left">密码：</li>
+                <li class="right"><input type="password" class="input" style="width:120px" name="UserPassword" id="UserPassword"/></li>
+            </ul>
+            <ul>
+                <li class="left">验证码：</li>
+                <li class="right"><input type="text" class="input" style="width:65px" name="SafeCode" id="SafeCode"/> <img src="CheckCode.ashx" onclick="this.src='CheckCode.ashx?t=' + new Date();" style="cursor:pointer" alt="点击刷新验证码" align="absmiddle" /></li>
+            </ul>            
+            <ul>
+                <li class="left"></li>
+                <li class="right"><input class="button" value="登录" type="submit" onclick="return checkLogin()" /><input type="hidden" name="Action" value="PostBack" />  还不是会员？ <a href="/User/Register.aspx">马上注册</a> ；  <a href="/User/FindPassword.aspx">忘记密码？</a></li>
+            </ul> 
+        </div> 
+        <div class="add openLogin">
+            <html:if expression="LoginPlugins.ReadEnabledLoginPluginsList().Count>0"><span class="tips">开放平台账号登录：</span></html:if>
+            <html:foreach expression="LoginPluginsInfo loginPlugins in LoginPlugins.ReadEnabledLoginPluginsList()">
+                <a href="/Plugins/Login/<$loginPlugins.Key$>/Login.aspx?RedirectUrl=<$redirectUrl$>"><img src="<$loginPlugins.Photo$>" /> <span><$loginPlugins.Name$></span></a>
+            </html:foreach>
+        </div>
+        </form>
+    </div>
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/Login.js" ></script>
+    <html:include file="Foot.htm" />
+</body>
+</html>

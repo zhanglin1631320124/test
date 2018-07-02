@@ -1,0 +1,29 @@
+﻿ <div class="foot">
+    <div class="block">
+        <div class="help">
+            <html:foreach expression="ArticleClassInfo articleClass in helpClassList">
+            <ul>
+                <li class="title"><$articleClass.ClassName$></li>
+                <html:foreach expression="ArticleClassInfo childArticleClass in ArticleClassBLL.ReadArticleClassChildList(articleClass.ID)">
+                <li> <a href="/Help-I<$childArticleClass.ID$>.aspx"><$childArticleClass.ClassName$></a></li>
+                </html:foreach>
+            </ul>
+            </html:foreach>           
+        </div>
+        <div class="clear redLine"></div>
+        <p class="message">
+        <html:csharp>int bo=0;</html:csharp>
+        <html:foreach expression="ArticleInfo bottom in bottomList">
+        <html:if expression="bo>0"> | </html:if>
+        <a href="<html:if expression="bottom.Url==string.Empty">/ArticleDetail-I<$bottom.ID$>.aspx<html:else><$bottom.Url$></html:if>"><$StringHelper.Substring(bottom.Title,11)$></a>
+        <html:csharp>bo++;</html:csharp>
+        </html:foreach>
+        <html:if expression="ShopConfig.ReadConfigInfo().RecordCode != string.Empty">
+        | <a href="http://www.miibeian.gov.cn"><$ShopConfig.ReadConfigInfo().RecordCode$></a>
+        </html:if>
+        <span style="display:none"><$ShopConfig.ReadConfigInfo().StaticCode$></span>
+        </p>
+        <div class="processTime">页面执行时间：<$processTime$>S</div>
+    </div>    
+</div>
+<script language="javascript" type="text/javascript" src="<html:templatePath>/Js/Global.js" ></script>

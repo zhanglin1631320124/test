@@ -1,0 +1,26 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+        <div class="step"><img src="<html:templatePath>/style/Images/cartStep3.gif" /></div>  
+        <div class="height10"></div>  
+        <div class="alertMessage">恭喜您，您的订单已提交成功，订单号：<$order.OrderNumber$></div>
+        <div class="height10"></div>  
+        <div class="finishButton">
+            <html:if expression="order.OrderStatus==(int)OrderStatus.WaitPay && payPlugins.IsOnline==(int)BoolType.True">
+            <input class="bigbutton" value="立即支付"  type="button" onclick="window.open('/Plugins/Pay/<$order.PayKey$>/Pay.aspx?Action=PayOrder&OrderID=<$order.ID$>')" /> 
+            </html:if>
+            <input class="bigbutton" value="查看订单"  type="button" onclick="window.location.href='/User/OrderDetail.aspx?ID=<$order.ID$>'" />
+        </div>
+    </div>
+    <html:include file="Foot.htm" />   
+</body>
+</html>

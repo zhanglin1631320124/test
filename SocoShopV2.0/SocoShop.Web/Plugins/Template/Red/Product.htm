@@ -1,0 +1,83 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+        <div class="left">
+            <div class="box">
+                <div class="boxHead"><span>商品类别</span></div>
+                <ul class="boxMain productClass" >
+                    <html:foreach expression="ProductClassInfo productClass in productClassList">
+                    <li class="first"><a href="/Product-C<$productClass.ID$>.aspx"><$productClass.ClassName$></a> </li>
+                    <html:if expression="ProductClassBLL.ReadProductClassChildList(productClass.ID).Count>0">
+                    <li class="second">
+                        <html:foreach expression="ProductClassInfo childProductClass in ProductClassBLL.ReadProductClassChildList(productClass.ID)">
+                        <a href="/Product-C<$childProductClass.ID$>.aspx"><$childProductClass.ClassName$></a>
+                        </html:foreach>
+                    </li>
+                    </html:if>
+                    </html:foreach>
+                </ul>
+            </div>
+            <div class="height10"></div>
+            <div class="box">
+                <div class="boxHead"><span>品牌推荐</span></div>
+                <div class="boxMain leftBrand" >
+                    <html:foreach expression="ProductBrandInfo productBrand in topProductBrandList">
+                    <html:if expression="productBrand.Url==string.Empty">
+                    <a href="/BrandDetail-I<$productBrand.ID$>.aspx"><img src="<$productBrand.Logo.Replace("Original","88-31")$>" onload="photoLoad(this,88,31)" /></a>
+                    <html:else>
+                    <a href="<$productBrand.Url$>"><img src="<$productBrand.Logo$>" onload="photoLoad(this,88,31)" /></a>
+                    </html:if>
+                    </html:foreach>
+                    <div class="clear"></div>
+                    <span class="more"><a href="/Brand.aspx">品牌专区>></a> </span>
+                </div>
+            </div>
+            <div class="height10"></div>
+            <div><script language="javascript" src="/Upload/AdUpload/000002.js" type="text/javascript"></script></div>
+            <div class="height10"></div>
+            <div class="box">
+                <div class="boxHead"><span>热门标签</span></div>
+                <div class="boxMain tag">
+                    <html:foreach expression="TagsInfo tags in tagsList">
+                    <a href="/Product/Tags/<$Server.UrlEncode(tags.Word)$>.aspx" style="font-size:<$tags.Size$>px; color:<$tags.Color$>"><$tags.Word$></a>
+                    </html:foreach>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="position"><$showCondition$></div>
+            <div class="height10"></div>
+            <html:if expression="searchType==2">
+            <ul class="topSearch">
+                <li class="title">您可能对以下搜索感兴趣：</li>
+                <li><$relationSearch$></li>
+            </ul> 
+            <div class="height10"></div>  
+            </html:if>   
+            <div class="productPannel">
+                适合您需求的商品共<a id="ProductCount"></a>个&nbsp;&nbsp;
+                显示方式：<a id="showWayDiv"></a>
+                排序方式：<select id="ProductOrderType" onchange="changeProductOrderType(this.value)"><option value="ID">默认排序</option><option value="MemberPrice1">按价格由高到低</option><option value="MemberPrice2">按价格由低到高</option><option value="PerPoint">按评分由高到低</option><option value="CommentCount">按评论数由高到低</option><option value="CollectCount">按收藏数由高到低</option><option value="ViewCount">按浏览数由高到低</option></select>
+                <span class="right"><a href="/Product/New.aspx">新品上市</a><a href="/Product/Hot.aspx">热销商品</a><a href="/Product/Special.aspx">特价商品</a><a href="/Product/Top.aspx">推荐商品</a></span>
+            </div>
+            <div id="ProductAjax"></div>
+        </div>
+    </div>
+    <script language="javascript">
+        var searchContion="<$searchCondition$>";
+        var searchType="<%=searchType %>";     
+        var templatePath="<html:templatePath>";  
+    </script>
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/Product.js" ></script>
+    <html:include file="Foot.htm" />   
+</body>
+</html>

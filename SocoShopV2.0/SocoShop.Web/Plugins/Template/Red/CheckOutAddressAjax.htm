@@ -1,0 +1,24 @@
+﻿<html:namespace name="SocoShop.Common" />
+<ul>
+    <li class="left"> 收货人姓名：</li>
+    <li class="right"><input type="text" name="Consignee"  id="Consignee"  value="<$userAddress.Consignee$>" class="input"  style="width:200px"/> <span>*</span></li>
+</ul>  
+<ul>
+    <li class="left"> 固定电话：</li>
+    <li class="right"><input type="text" name="Tel" id="Tel" value="<$userAddress.Tel$>" class="input" style="width:200px" /></li>
+</ul>
+<ul>
+    <li class="left"> 手机：</li>
+    <li class="right"><input type="text" name="Mobile" id="Mobile" value="<$userAddress.Mobile$>" class="input" style="width:200px" /></li>
+</ul>
+ <ul>
+    <li class="left"> 地址：</li>
+    <li class="right"><$singleUnlimitClass.ShowContent()$> 邮编：<input type="text"  name="ZipCode" id="ZipCode" value="<$userAddress.ZipCode$>" class="input" style="width:80px" /> <span>*</span>
+    <br /><input type="text"  name="Address" id="Address" value="<$userAddress.Address$>" class="input" style="width:400px" /> <span>*</span></li>
+</ul> 
+<html:if expression="base.UserID==0">
+<ul>
+    <li class="left"> Email：</li>
+    <li class="right"><input type="text" name="Email" id="Email" value="" class="input" style="width:120px" /> <span>*</span>（用于订单状态改变时发送邮件）</li>
+</ul> 
+</html:if> 

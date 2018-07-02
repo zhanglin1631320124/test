@@ -1,0 +1,58 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+        <div class="left">
+            <div class="box">
+                <html:switch name="articleClassID">
+                <html:case value="(int)ArticleClass.Bottom">
+                <div class="boxHead"><span>关于我们</span></div>
+                <ul class="boxMain article" >
+                    <html:foreach expression="ArticleInfo tempBottom in bottomList">
+                    <li><a href="<html:if expression="tempBottom.Url==string.Empty">/ArticleDetail-I<$tempBottom.ID$>.aspx<html:else><$tempBottom.Url$></html:if>"><$StringHelper.Substring(tempBottom.Title,11)$></a> </li>
+                    </html:foreach>
+                </ul>
+                <html:break>
+                <html:case value="(int)ArticleClass.News">
+                <div class="boxHead"><span>热门新闻</span></div>
+                <ul class="boxMain article" >
+                    <html:foreach expression="ArticleInfo topNews in topArticleList">
+                    <li><a href="<html:if expression="topNews.Url==string.Empty">/NewsDetail-I<$topNews.ID$>.aspx<html:else><$topNews.Url$></html:if>"><$StringHelper.Substring(topNews.Title,11)$></a> </li>
+                    </html:foreach>
+                </ul>
+                <html:break>
+                <html:case value="(int)ArticleClass.Product">
+                <div class="boxHead"><span>产品文章</span></div>
+                <div class="boxMain" >
+                    <div class="productPhoto"><a href="/ProductDetail-I<$product.ID$>.aspx"><img src="<$product.Photo.Replace("Original","340-340")$>" onload="photoLoad(this,180,180)"/></a></div>
+                    <html:foreach expression="ArticleInfo productArticle in productArticleList">
+                    <ul class="article" style="text-align:left">
+                        <li><a href="<html:if expression="productArticle.Url==string.Empty">/ArticleDetail-P<$product.ID$>-I<$productArticle.ID$>.aspx<html:else><$productArticle.Url$></html:if>"><$productArticle.Title$></a> </li>
+                    </ul>
+                    </html:foreach>
+                </div>
+                <html:break>
+                <html:default>
+                <html:break>
+                </html:swith>                
+            </div>         
+        </div>
+        <div class="right">
+            <div class="articleTitle"><$article.Title$></div>
+            <html:if expression="articleClassID!=(int)ArticleClass.Bottom">
+            <div class="articleTime"><span>时间：<$article.Date.ToString("yyyy-MM-dd")$></span><span>来源：<$article.Resource$> </span><span>作者：<$article.Author$></span></div>
+            </html:if>
+            <div class="articleContent"><$article.Content$></div>       
+        </div>
+    </div>
+    <html:include file="Foot.htm" />   
+</body>
+</html>

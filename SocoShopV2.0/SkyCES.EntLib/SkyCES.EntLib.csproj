@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8123DBBC-112C-4853-8597-3C5E64C3965A}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>SkyCES.EntLib</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.1.271, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\Lib\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\Lib\Microsoft.Office.Interop.Word.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Configuration" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BaseTag.cs" />
+    <Compile Include="SwitchTag.cs" />
+    <Compile Include="ProcessingEventArgs.cs" />
+    <Compile Include="ForeachTag.cs" />
+    <Compile Include="URLInfo.cs" />
+    <Compile Include="CsharpTag.cs" />
+    <Compile Include="TimeType.cs" />
+    <Compile Include="ConditionType.cs" />
+    <Compile Include="BasePager.cs" />
+    <Compile Include="CommonPager.cs" />
+    <Compile Include="ServerHelper.cs" />
+    <Compile Include="MultiUnlimitClass.cs" />
+    <Compile Include="PreWriteEventArgs.cs" />
+    <Compile Include="ExceptionHelper.cs" />
+    <Compile Include="EnumInfo.cs" />
+    <Compile Include="OrderType.cs" />
+    <Compile Include="BasePagerClass.cs" />
+    <Compile Include="AjaxPagerClass.cs" />
+    <Compile Include="CookiesHelper.cs" />
+    <Compile Include="EnumAttribute.cs" />
+    <Compile Include="MssqlPagerClass.cs" />
+    <Compile Include="UnlimitClassInfo.cs" />
+    <Compile Include="CommonPagerClass.cs" />
+    <Compile Include="ResponseHelper.cs" />
+    <Compile Include="CheckCode.cs" />
+    <Compile Include="FileNameType.cs" />
+    <Compile Include="XmlHelper.cs" />
+    <Compile Include="AjaxPager.cs" />
+    <Compile Include="BreakTag.cs" />
+    <Compile Include="Hint.cs" />
+    <Compile Include="ZipHelper.cs" />
+    <Compile Include="URLRewriterModule.cs" />
+    <Compile Include="ScriptHelper.cs" />
+    <Compile Include="LogBase.cs" />
+    <Compile Include="FileLog.cs" />
+    <Compile Include="TextBox.cs" />
+    <Compile Include="RequiredFieldTypeControlsConverter.cs" />
+    <Compile Include="CanBeNullControlsConverter.cs" />
+    <Compile Include="MailClass.cs" />
+    <Compile Include="ControlHelper.cs" />
+    <Compile Include="ClientHelper.cs" />
+    <Compile Include="AdClass.cs" />
+    <Compile Include="MssqlHelper.cs" />
+    <Compile Include="SkyTemplateFile.cs" />
+    <Compile Include="IMessage.cs" />
+    <Compile Include="WebMessage.cs" />
+    <Compile Include="WhileTag.cs" />
+    <Compile Include="SetTag.cs" />
+    <Compile Include="IfTag.cs" />
+    <Compile Include="CacheHelper.cs" />
+    <Compile Include="AccessCondition.cs" />
+    <Compile Include="AccessPagerClass.cs" />
+    <Compile Include="AccessHelper.cs" />
+    <Compile Include="MailInfo.cs" />
+    <Compile Include="CodeType.cs" />
+    <Compile Include="ImageHelper.cs" />
+    <Compile Include="DataBaseLog.cs" />
+    <Compile Include="DownFinishedHandler.cs" />
+    <Compile Include="DownFile.cs" />
+    <Compile Include="ForTag.cs" />
+    <Compile Include="FileHelper.cs" />
+    <Compile Include="EnumHelper.cs" />
+    <Compile Include="MssqlCondition.cs" />
+    <Compile Include="TxtLog.cs" />
+    <Compile Include="TagComposite.cs" />
+    <Compile Include="AdType.cs" />
+    <Compile Include="AccessPoolManager.cs" />
+    <Compile Include="WordHelper.cs" />
+    <Compile Include="LogFileNameType.cs" />
+    <Compile Include="WinMessage.cs" />
+    <Compile Include="FactoryHelper.cs" />
+    <Compile Include="MessageType.cs" />
+    <Compile Include="ProcessFinishedHandler.cs" />
+    <Compile Include="ProcessingHandler.cs" />
+    <Compile Include="PreWriteHandler.cs" />
+    <Compile Include="SkyTemplate.cs" />
+    <Compile Include="BoolType.cs" />
+    <Compile Include="UploadHelper.cs" />
+    <Compile Include="RequestHelper.cs" />
+    <Compile Include="ChineseCharacterHelper.cs" />
+    <Compile Include="ExcelHelper.cs" />
+    <Compile Include="MultiUnlimitControl.cs" />
+    <Compile Include="SingleUnlimitClass.cs" />
+    <Compile Include="ThumbnailType.cs" />
+    <Compile Include="PasswordType.cs" />
+    <Compile Include="Date.cs" />
+    <Compile Include="SingleUnlimitControl.cs" />
+    <Compile Include="StringHelper.cs" />
+    <Compile Include="HttpHelper.cs" />
+  </ItemGroup>
+</Project>

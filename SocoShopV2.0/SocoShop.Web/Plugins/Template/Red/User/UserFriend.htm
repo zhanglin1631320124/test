@@ -1,0 +1,48 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+    <script language="javascript" type="text/javascript" src="/Admin/Js/Calendar.js" ></script>
+</head>
+<body>
+    <html:include file="Top.htm" />    
+    <div class="main">
+        <div class="left">       
+            <html:include file="/User/UserLeft.htm" />          
+        </div>
+        <div class="right">   
+            <div>用户中心 >  我的好友 </div>
+            <div class="height10"></div>
+            <div class="userTitle"></div>
+            <div class="userBlock">
+                <html:foreach expression="UserFriendInfo userFriend in userFriendList">
+                <html:csharp>
+                    UserInfo tempUser=UserBLL.ReadUserByUserList(userList,userFriend.FriendID);
+                    string userPhoto = tempUser.Photo;
+                    if (userPhoto == string.Empty)
+                    {
+                        userPhoto = "/Plugins/Template/" + ShopConfig.ReadConfigInfo().TemplatePath + "/Style/Images/NoImage.gif";
+                    }
+                    else
+                    {
+                        userPhoto = userPhoto.Replace("Original", "187-187");
+                    }
+                </html:csharp>
+                <ul class="userBox">                
+                    <li class="photo"><img src="<$userPhoto$>" onload="photoLoad(this,110,110)"/></li>
+                    <li><$tempUser.UserName$>  &nbsp;&nbsp;<a href="?Action=Delete&ID=<$userFriend.ID$>" onclick="return deleteRecord(this);">删除</a></li>
+                </ul>
+                </html:foreach>   
+            </div>   
+            <div class="height10"></div>
+            <$commonPagerClass.ShowPage()$>  
+            <div class="height10"></div>               
+        </div>
+    </div>
+    <html:include file="Foot.htm" />
+</body>
+</html>

@@ -1,0 +1,13 @@
+﻿<ul class="boxMain productClass" >
+    <html:if expression="selectProuct.Length>0">
+    <html:for init="int k=0" condtion="k<selectProuct.Length" expression="k++">
+    <html:csharp>string[] tempArray=selectProuct[k].Split(',');</html:csharp>
+    <div class="productPhoto"><a href="/ProductDetail-I<$tempArray[2]$>.aspx"><img src="<$tempArray[3].Replace("Original","340-340")$>" onload="photoLoad(this,180,180)"/></a></div>
+    <div class="productName"><$tempArray[4]$></div>
+    <div class="deleteButton"><input type="button" class="button" value=" 删 除 " onclick="deleteGiftPack(<$tempArray[0]$>,<$tempArray[2]$>)" /></div>
+    </html:for>
+    <div class="cartButton"><input type="button" class="bigbutton" value="放入购物车" onclick="addToCart(<$giftPackID$>)" /></div>
+    <html:else>
+    <div class="giftPackTips">请选择右边礼品包中的产品</div>
+    </html:if>
+</ul>

@@ -1,0 +1,51 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+    <script language="javascript" type="text/javascript" src="/Admin/Js/Calendar.js" ></script>
+</head>
+<body>
+    <html:include file="Top.htm" />    
+    <div class="main">
+        <div class="left">       
+            <html:include file="/User/UserLeft.htm" />          
+        </div>
+        <div class="right">   
+            <div>用户中心 >  订单管理  </div>
+            <div class="height10"></div>
+            <div class="userTitle"></div>
+            <table class="listTable" cellpadding="0" cellpadding="0">
+                <tr class="listTableHead">
+                    <td>订单编号</td>
+                    <td>下单时间</td>
+                    <td>订单总额</td>
+                    <td>支付方式</td>
+                    <td>配送方式</td>
+                    <td>订单状态</td>
+                    <td>操作</td>
+                </tr>
+                <html:foreach expression="OrderInfo order in orderList">
+                <tr class="listTableMain">
+                    <td><a href="/User/OrderDetail.aspx?ID=<$order.ID$>"><$order.OrderNumber$></a></td>
+                    <td><$order.AddDate$></td>
+                    <td>￥<$(order.ProductMoney-order.FavorableMoney+order.ShippingMoney+order.OtherMoney)$></td>                    
+                    <td><$order.PayName$></td>
+                    <td><$ShippingBLL.ReadShippingCache(order.ShippingID).Name$></td>
+                    <td id="OrderStatus<$order.ID$>"><$OrderBLL.ReadOrderStatus(order.OrderStatus)$></td>
+                    <td id="OrderOperate<$order.ID$>"><a href="/User/OrderDetail.aspx?ID=<$order.ID$>">查看</a>  <$OrderBLL.ReadOrderUserOperate(order.ID,order.OrderStatus,order.PayKey)$></td>
+                </tr>
+                </html:foreach>
+            </table>
+            <div class="height10"></div>
+            <$commonPagerClass.ShowPage()$>  
+            <div class="height10"></div>  
+        </div>
+    </div>
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/Order.js" ></script>
+    <html:include file="Foot.htm" />
+</body>
+</html>

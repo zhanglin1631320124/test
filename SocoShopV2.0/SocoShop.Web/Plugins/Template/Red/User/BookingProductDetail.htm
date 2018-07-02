@@ -1,0 +1,58 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+</head>
+<body>
+    <html:include file="Top.htm" />    
+    <div class="main">
+        <div class="left">       
+            <html:include file="/User/UserLeft.htm" />          
+        </div>
+        <div class="right">   
+            <div>用户中心 > 缺货登记</div>  
+            <div class="height10"></div>         
+            <div class="userTitle"></div>
+            <div class="add">
+                <ul>
+                    <li class="left">产品名称：</li>
+                    <li class="right"><$bookingProduct.ProductName$></li>
+                </ul>
+                <ul>
+                    <li class="left">联系人：</li>
+                    <li class="right"><$bookingProduct.RelationUser$></li>
+                </ul>
+                <ul>
+                    <li class="left">Email：</li>
+                    <li class="right"><$bookingProduct.Email$></li>
+                </ul>  
+                 <ul>
+                    <li class="left">联系电话：</li>
+                    <li class="right"><$bookingProduct.Tel$></li>
+                </ul>
+                <ul>
+                    <li class="left">用户备注：</li>
+                    <li class="right"><$bookingProduct.UserNote$></li>
+                </ul>
+                <ul>
+                    <li class="left">登记时间：</li>
+                    <li class="right"><$bookingProduct.BookingDate$></li>
+                </ul>
+                <ul>
+                    <li class="left">是否处理：</li>
+                    <li class="right"><html:if expression="bookingProduct.IsHandler==1">是<html:else>否</html:if></li>
+                </ul>
+                <ul>
+                    <li class="left">处理备注：</li>
+                    <li class="right"><$bookingProduct.HandlerNote$></li>
+                </ul> 
+            </div>                   
+        </div>
+    </div>
+    <html:include file="Foot.htm" />
+</body>
+</html>

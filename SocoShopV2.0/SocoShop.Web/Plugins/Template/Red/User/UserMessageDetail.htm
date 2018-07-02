@@ -1,0 +1,48 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+    <script language="javascript" type="text/javascript" src="/Admin/Js/Calendar.js" ></script>
+    <script language="javascript" type="text/javascript" src="/Admin/Js/UnlimitClass.js" ></script>
+</head>
+<body>
+    <html:include file="Top.htm" />    
+    <div class="main">
+        <div class="left">       
+            <html:include file="/User/UserLeft.htm" />          
+        </div>
+        <div class="right">   
+            <div>用户中心 > 我的留言</div>  
+            <div class="height10"></div>         
+            <div class="userTitle"></div>
+            <div class="add">
+                <ul>
+                    <li class="left">标题：</li>
+                    <li class="right"><$userMessage.Title$></li>
+                </ul> 
+                <ul>
+                    <li class="left">内容：</li>
+                    <li class="right"><$userMessage.Content$></li>
+                </ul> 
+                <ul>
+                    <li class="left">类型：</li>
+                    <li class="right"><$UserMessageBLL.ReadMessageType(userMessage.MessageClass)$></li>
+                </ul>  
+                <ul>
+                    <li class="left">时间：</li>
+                    <li class="right"><$userMessage.PostDate$></li>
+                </ul>  
+                <ul>
+                    <li class="left">处理意见：</li>
+                    <li class="right"><html:if expression="userMessage.IsHandler==1"><$userMessage.AdminReplyContent$><html:else>未处理</html:if></li>
+                </ul>  
+            </div>                 
+        </div>
+    </div>
+    <html:include file="Foot.htm" />
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<li><$vote.Title$></li>
+<html:if expression="action == "Prepare"">
+    <html:foreach expression="VoteItemInfo voteItem in voteItemList">
+        <html:if expression="vote.VoteType==(int)VoteType.Radio">
+        <li><input name="vote" type="radio" value="<$voteItem.ID$>">&nbsp;&nbsp;<$voteItem.ItemName$></li> 
+        <html:else>
+        <li><input name="vote" type="checkbox" value="<$voteItem.ID$>">&nbsp;&nbsp;<$voteItem.ItemName$></li> 
+        </html:if>
+    </html:foreach>
+    <li><input type="button" class="button" value="提 交" onclick="vote(<$vote.ID$>,<$(int)vote.VoteType$>)" />&nbsp;&nbsp;<input  type="button" class="button" value=" 查 看" onclick="viewResult()" /> </li> 
+<html:else>
+    <html:csharp>int i=1;</html:csharp>
+    <html:foreach expression="VoteItemInfo voteItem in voteItemList">
+    <li><$i$>、<$voteItem.ItemName$>：<span class="voteCount"><$voteItem.VoteCount$></span></li> 
+    <html:csharp>i++;</html:csharp>  
+    </html:foreach>
+    <li><input type="button" class="button"  value="返 回" onclick="prePareVote()" /> </li> 
+</html:if>

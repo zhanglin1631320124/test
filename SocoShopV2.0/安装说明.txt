@@ -1,0 +1,16 @@
+一、服务器环境
+数据库:Mssql2005或者以上。
+net2.0或者以上。
+二、安装步骤
+1、上传安装文件包到指定目录。
+2、运行Install目录下的index.aspx文件，根据要求填写好，然后一键安装。
+3、安装完成之后，请删除Install目录。
+
+
+
+天易CES开发组（http://www.skyces.com）
+旗下产品：
+1、SocoShop商城系统 (http://www.socoshop.com)
+2、IabcWeb建站系统(http://www.iabcweb.com)
+联系QQ:625090530 312718144
+Emial:skyces@163.com skyces@126.com

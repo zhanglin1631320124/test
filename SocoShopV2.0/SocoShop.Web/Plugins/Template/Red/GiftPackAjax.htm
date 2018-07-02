@@ -1,0 +1,20 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<html:foreach expression="GiftPackInfo giftPack in giftPackList">  
+<div class="giftPack">
+    <div class="photo"><a href="/GiftPackDetail-I<$giftPack.ID$>.aspx" target="_blank"><img src="<$giftPack.Photo.Replace("Original","150-60")$>" onload="photoLoad(this,150,60)"  /></a></div>
+    <div class="info">
+        <ul>
+            <li class="title"><a href="/GiftPackDetail-I<$giftPack.ID$>.aspx" target="_blank"><$giftPack.Name$></a></li>
+            <li>价格：<span><$giftPack.Price$></span></li>
+            <li class="time">活动时间：<$giftPack.StartDate.ToString("yyyy年MM月dd日")$> — <$giftPack.EndDate.ToString("yyyy年MM月dd日")$></li>
+        </ul>
+    </div>
+</div>
+</html:foreach>
+<html:if expression="ajaxPagerClass.Count>6">
+<div class="height10"></div>
+<$ajaxPagerClass.ShowPage()$>
+</html:if>    

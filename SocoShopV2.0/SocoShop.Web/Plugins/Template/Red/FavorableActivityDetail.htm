@@ -1,0 +1,68 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />   
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+       <div class="position">首页 > 优惠活动</div>
+        <div class="height10"></div>
+        <div class="favorableActivityTitle"><$favorableActivity.Name$></div>
+        <div class="add favorableActivityDetail">
+            <ul>
+                <li class="left">活动时间：</li>
+                <li class="right"><$favorableActivity.StartDate.ToString("yyyy年MM月dd日")$> — <$favorableActivity.EndDate.ToString("yyyy年MM月dd日")$></li>
+            </ul> 
+            <ul>
+                <li class="left">享受的用户：</li>
+                <li class="right"><$userGrade$></li>
+            </ul>
+            <ul>
+                <li class="left">订单最低金额：</li>
+                <li class="right"><$favorableActivity.OrderProductMoney$></li>
+            </ul>
+            <html:if expression="favorableActivity.ShippingWay==1">
+            <ul>
+                <li class="left">运费减免地区：</li>
+                <li class="right"><$RegionBLL.RegionNameList(favorableActivity.RegionID)$></li>
+            </ul>
+            </html:if>
+            <html:if expression="favorableActivity.ReduceWay==1">
+            <ul>
+                <li class="left">减免金额：</li>
+                <li class="right"><$favorableActivity.ReduceMoney$></li>
+            </ul>
+            </html:if>
+            <html:if expression="favorableActivity.ReduceWay==2">
+            <ul>
+                <li class="left">价格折扣：</li>
+                <li class="right"><$favorableActivity.ReduceDiscount$>折</li>
+            </ul>
+            </html:if>
+            <html:if expression="favorableActivity.GiftID!= string.Empty">
+            <ul>
+                <li class="left">赠送礼品（任选一种）：</li>
+                <li class="right">
+                <html:foreach expression="GiftInfo gift in giftList">
+                <ul class="gift">
+                    <li class="photo"><img src="<$gift.Photo.Replace("Original","100-100")$>" onload="photoLoad(this,100,100)"  /></li>
+                    <li class="name"><$gift.Name$></li>
+                </ul>
+                </html:foreach>
+                </li>
+            </ul>
+            </html:if>
+            <ul>
+                <li class="left">活动介绍：</li>
+                <li class="right"><$favorableActivity.Content$></li>
+            </ul> 
+        </div>
+    </div>
+    <html:include file="Foot.htm" />   
+</body>
+</html>

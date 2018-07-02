@@ -1,0 +1,26 @@
+﻿<%@ Master Language="C#" AutoEventWireup="True" CodeBehind="MasterPage.Master.cs" Inherits="SocoShop.Web.Admin.MasterPage" %>
+<%@ Import Namespace="SocoShop.Common" %>
+<%@ Import Namespace="SocoShop.Business" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title><%=Global.ProductName%>后台管理</title>
+    <link href="/Admin/Style/style.css" type="text/css" rel="stylesheet" media="all" /> 
+    <script language="javascript" type="text/javascript">var globalPopCloseRefresh=<%=ShopConfig.ReadConfigInfo().PopCloseRefresh.ToString() %>; var globalNamePrefix = "<%=ShopConfig.ReadConfigInfo().NamePrefix%>"; var globalIDPrefix = "<%=ShopConfig.ReadConfigInfo().IDPrefix%>";</script>
+    <script language="javascript" type="text/javascript" src="/Admin/Js/Common.js" ></script>
+    <script language="javascript" type="text/javascript" src="/Admin/Js/Admin.js" ></script> 
+    <%if(Request.RawUrl.IndexOf("Add.aspx")==-1){ %>
+    <script type="text/javascript" src="/Admin/Pop/lhgcore.min.js"></script>
+	<script type="text/javascript" src="/Admin/Pop/lhgdialog.min.js?s=chrome"></script>	 
+	<%} %>
+</head>
+<body> 
+    <form id="aspnetForm" runat="server">
+    <div class="mainBody">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder" runat="server">        
+        </asp:ContentPlaceHolder> 
+	 </div>
+    </form>
+</body>
+</html>
+

@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="True" CodeBehind="TaobaoProductAdd.aspx.cs" Inherits="SocoShop.Web.Admin.TaobaoProductAdd" %>

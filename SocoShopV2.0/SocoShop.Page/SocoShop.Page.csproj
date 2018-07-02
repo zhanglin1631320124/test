@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectType>local</ProjectType>
+    <ProjectVersion>7.10.377</ProjectVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{19808485-82E4-448D-B9CE-9F66B13ED426}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <AssemblyName>SocoShop.Page</AssemblyName>
+    <OutputType>Library</OutputType>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="System.Web" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BasePage.cs" />
+    <Compile Include="CommonBasePage.cs" />
+    <Compile Include="UserBasePage.cs" />
+    <Compile Include="UserFriend.cs" />
+    <Compile Include="BrandDetail.cs" />
+    <Compile Include="AdminBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AjaxBasePage.cs" />
+    <Compile Include="UserAjaxBasePage.cs" />
+    <Compile Include="UserMessageAjax.cs" />
+    <Compile Include="BookingProductDetail.cs" />
+    <Compile Include="ProductReply.cs" />
+    <Compile Include="FavorableActivity.cs" />
+    <Compile Include="ThemeActivityAjax.cs" />
+    <Compile Include="ProductCommentAjax.cs" />
+    <Compile Include="Help.cs" />
+    <Compile Include="FavorableActivityDetail.cs" />
+    <Compile Include="UserRecharge.cs" />
+    <Compile Include="UserAccountRecordAjax.cs" />
+    <Compile Include="GiftPackDetail.cs" />
+    <Compile Include="Finish.cs" />
+    <Compile Include="CheckOutShippingAjax.cs" />
+    <Compile Include="Cart.cs" />
+    <Compile Include="UserAdd.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="GiftPackAjax.cs" />
+    <Compile Include="Controls\Top.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Activity.cs" />
+    <Compile Include="UserRechargeAjax.cs" />
+    <Compile Include="UserTags.cs" />
+    <Compile Include="UserProductReply.cs" />
+    <Compile Include="ResetPassword.cs" />
+    <Compile Include="ReadMessage.cs" />
+    <Compile Include="MessageDetail.cs" />
+    <Compile Include="FindPassword.cs" />
+    <Compile Include="ChangePassword.cs" />
+    <Compile Include="Ad.cs" />
+    <Compile Include="VoteResult.cs" />
+    <Compile Include="UserApply.cs" />
+    <Compile Include="Register.cs" />
+    <Compile Include="BookingProduct.cs" />
+    <Compile Include="CartAjax.cs" />
+    <Compile Include="Ajax.cs" />
+    <Compile Include="UserApplyAjax.cs" />
+    <Compile Include="UserAccountRecord.cs" />
+    <Compile Include="OrderDetail.cs" />
+    <Compile Include="Logout.cs" />
+    <Compile Include="PluginsBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Head.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BookingProductAdd.cs" />
+    <Compile Include="OrderAjax.cs" />
+    <Compile Include="ThemeActivityDetail.cs" />
+    <Compile Include="Default.cs" />
+    <Compile Include="CheckOutAddressAjax.cs" />
+    <Compile Include="CheckOut.cs" />
+    <Compile Include="UserCouponAjax.cs" />
+    <Compile Include="UserAddress.cs" />
+    <Compile Include="MessageAjax.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="GiftPackDetailAjax.cs" />
+    <Compile Include="UserLeft.cs" />
+    <Compile Include="Login.cs" />
+    <Compile Include="ActiveUser.cs" />
+    <Compile Include="Controls\Settings.cs" />
+    <Compile Include="Controls\Foot.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserMessage.cs" />
+    <Compile Include="ProductDetail.cs" />
+    <Compile Include="ArticleDetail.cs" />
+    <Compile Include="ProductReplyAjax.cs" />
+    <Compile Include="Brand.cs" />
+    <Compile Include="News.cs" />
+    <Compile Include="UserProductComment.cs" />
+    <Compile Include="UserProductCollect.cs" />
+    <Compile Include="UserMessageDetail.cs" />
+    <Compile Include="UserCoupon.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="Index.cs" />
+    <Compile Include="ProductAjax.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SkyCES.EntLib\SkyCES.EntLib.csproj">
+      <Project>{8123DBBC-112C-4853-8597-3C5E64C3965A}</Project>
+      <Name>SkyCES.EntLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocoShop.Business\SocoShop.Business.csproj">
+      <Project>{96C6BAB0-CE5F-4618-962C-B5F86DE6A618}</Project>
+      <Name>SocoShop.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocoShop.Common\SocoShop.Common.csproj">
+      <Project>{24E863CA-13AB-4320-9ED2-E0E715AB8C0D}</Project>
+      <Name>SocoShop.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocoShop.Entity\SocoShop.Entity.csproj">
+      <Project>{09D1C5BE-BE56-4F95-96FE-B43C2C2B4B05}</Project>
+      <Name>SocoShop.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

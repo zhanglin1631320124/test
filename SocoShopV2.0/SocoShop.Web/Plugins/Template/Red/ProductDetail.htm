@@ -1,0 +1,226 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <html:include file="Head.htm" />
+</head>
+<body>
+    <html:include file="Top.htm" />
+    <div class="main">
+        <div class="left">
+            <div class="box">
+                <div class="boxHead"><span>商品类别</span></div>
+                <ul class="boxMain productClass" >
+                    <html:foreach expression="ProductClassInfo productClass in productClassList">
+                    <li class="first"><a href="/Product-C<$productClass.ID$>.aspx"><$productClass.ClassName$></a> </li>
+                    <html:if expression="ProductClassBLL.ReadProductClassChildList(productClass.ID).Count>0">
+                    <li class="second">
+                        <html:foreach expression="ProductClassInfo childProductClass in ProductClassBLL.ReadProductClassChildList(productClass.ID)">
+                        <a href="/Product-C<$childProductClass.ID$>.aspx"><$childProductClass.ClassName$></a>
+                        </html:foreach>
+                    </li>
+                    </html:if>
+                    </html:foreach>
+                </ul>
+            </div>
+            <div class="height10"></div>
+            <div class="box">
+                <div class="boxHead"><span>商品标签</span></div>
+                <div class="boxMain tag">
+                    <div id="ProductTagAjax" class="list">
+                    <html:foreach expression="TagsInfo tags in productTagsList">
+                    <a href="/Product/Tags/<$Server.UrlEncode(tags.Word)$>.aspx" style="font-size:<$tags.Size$>px; color:<$tags.Color$>"><$tags.Word$></a>
+                    </html:foreach>
+                    </div>
+                    <input id="Word" type="text" class="input" />  <input type="button" class="button" value="提 交" onclick="addTags()" />
+                </div>
+            </div>
+            <div class="height10"></div>
+            <html:if expression="product.RelationArticle!=string.Empty">
+            <div class="box">
+                <div class="boxHead"><span>相关文章</span></div>
+                <ul class="boxMain" >
+                    <html:foreach expression="ArticleInfo article in productArticleList">
+                    <li><a href="<html:if expression="article.Url==string.Empty">/ArticleDetail-P<$product.ID$>-I<$article.ID$>.aspx<html:else><$article.Url$></html:if>"><$article.Title$></a> </li>
+                    </html:foreach>
+                </ul>
+            </div>
+            <div class="height10"></div>
+            </html:if>            
+            <div class="box">
+                <div class="boxHead"><span>浏览过的商品</span></div>
+                <div class="boxMain">
+                    <html:if expression="strHistoryProduct!=string.Empty">
+                    <html:foreach expression="string temp in strHistoryProduct.Split(',')">
+                    <html:csharp>ProductInfo tempProduct=ProductBLL.ReadProductByProductList(tempProductList,Convert.ToInt32(temp));</html:csharp>
+                    <ul class="smallProduct">
+                        <li class="photo"><a href="/ProductDetail-I<$tempProduct.ID$>.aspx"><img src="<$tempProduct.Photo.Replace("Original","60-60")$>" onload="photoLoad(this,60,60)" /></a> </li>
+                        <li class="text"><a href="/ProductDetail-I<$tempProduct.ID$>.aspx"><$StringHelper.Substring(tempProduct.Name,14)$></a> <br />￥<$MemberPriceBLL.ReadCurrentMemberPrice(memberPriceList,base.GradeID,tempProduct)$> </li>
+                    </ul>
+                    </html:foreach>                    
+                    </html:if>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="productPhoto">
+                <div class="bigPhoto"><img src="<$product.Photo.Replace("Original","340-340")$>" onload="photoLoad(this,340,340)"  id="BigPhoto" /></div>
+                <div class="photoList">
+                    <div class="photoListLeft"><p id="PhotoLeft" ></p></div>
+                    <div class="photoListContent" id="PhotoCount">
+                        <div class="photoListInner">
+                            <div id="PhotoList1" style="float:left;">  
+                                <html:foreach expression="ProductPhotoInfo productPhoto in productPhotoList">                         
+                                <a href="javascript:void(0);"><img src="<$productPhoto.Photo.Replace("Original","60-60")$>" onload="photoLoad(this,50,50)" onclick="showPhoto('<$productPhoto.Photo.Replace("Original","340-340")$>')" alt="<$productPhoto.Name$>" /></a>     
+                                </html:foreach>                     
+                             </div>
+                             <div id="PhotoList2" style="float:left; padding-left:3px; padding-right:3px;"></div>
+                         </div>
+                    </div>
+                    <div class="photoListRight"><p id="PhotoRight"></p></div>
+                </div>        
+                <!-- JiaThis Button BEGIN -->
+                <div id="ckepop" class="jiathis">
+	                <span class="jiathis_txt">分享到：</span>
+	                <a class="jiathis_button_qzone"></a>
+	                <a class="jiathis_button_tsina"></a>
+	                <a class="jiathis_button_renren"></a>
+	                <a class="jiathis_button_kaixin001"></a>
+	                <a class="jiathis_button_msn"></a>
+	                <a class="jiathis_button_douban"></a>
+	                <a class="jiathis_button_taobao"></a>
+	                <a class="jiathis_button_tqq"></a>
+	                <a class="jiathis_button_tianya"></a>
+	                <a class="jiathis_button_51"></a>
+	                <a class="jiathis_button_mop"></a>
+	                <a class="jiathis_button_tsohu"></a>
+	                <a class="jiathis_button_xiaoyou"></a>
+	                <a class="jiathis_button_baidu"></a>
+                </div>
+                <!-- JiaThis Button END -->
+            </div>
+            <div class="productInfo">
+                <div class="name" style="<$product.FontStyle$><html:if expression="product.Color!=string.Empty"> ;color:<$product.Color$></html:if>"><$product.Name$></div> 
+                <div class="height10"></div>
+                <div class="border1"></div>
+                <div class="height10"></div>                
+                <div>品牌：<$ProductBrandBLL.ReadProductBrandCache(product.BrandID).Name$></div>
+                <div>分类：<$ProductClassBLL.ProductClassNameList(product.ClassID)$></div>
+                <div>用户综合评分：<span class="grade"><i style="width:<$product.PerPoint*20$>%"></i></span> <span class="point"><$product.PerPoint$></span>（已有 <span class="commentCount"><$product.CommentCount$></span> 人评价）</div>
+                <div class="height10"></div>
+                <div class="border1"></div>
+                <div class="height10"></div>
+                <div>市场价：<span class="maketPrice">￥<$product.MarketPrice$></span></div>
+                <div>销售价：<span class="salePrice">￥<$currentMemberPrice$><input id="CurrentMemberPrice" value="<$currentMemberPrice$>" type="hidden"" /></span>   节省：￥ <$(product.MarketPrice-currentMemberPrice)$></div>                
+                <div><html:foreach expression="UserGradeInfo userGrade in userGradeList"><$userGrade.Name$>价：￥<$MemberPriceBLL.ReadMemberPrice(userGrade,memberPriceList,product)$>  </html:foreach></div>
+                <div class="height10"></div>
+                <div class="border1"></div>
+                <div class="height10"></div>
+                <html:if expression="product.StandardType==1">      
+                <input id="StandardRecordValueList" value="<$standardRecordValueList$>" type="hidden" />
+                <html:foreach expression="StandardInfo standard in standardList"> 
+                <div class="clear"><$standard.Name$>：<input id="StandardValue_<$standard.ID$>"  name="StandardValue" type="hidden" /><span id="Standard_<$standard.ID$>">请选择</span></div>
+                <div class="standard">
+                    <html:csharp>
+                        string[] valueArray = standard.ValueList.Split(',');
+                        string[] photoArray = standard.PhotoList.Split(',');
+                    </html:csharp>
+                    <html:for init="int i=0" condtion="i<valueArray.Length" expression="i++">
+                    <html:if expression="standard.DisplayTye==1">
+                    <span class="standardBlock" title="<$valueArray[i]$>" onclick="selectSingleStandard('<$valueArray[i]$>',<$standard.ID$>)"><$valueArray[i]$></span>
+                    <html:else>
+                    <span class="standardBlock" title="<$valueArray[i]$>" onclick="selectSingleStandard('<$valueArray[i]$>',<$standard.ID$>)"><img src="<$photoArray[i]$>" width="25" height="25" /></span>
+                    </html:if>
+                    </html:for>
+                </div>
+                </html:foreach>
+                <html:else>
+                <div class="clear"></div>
+                <div class="standard">
+                    <html:foreach expression="StandardRecordInfo standardRecord in standardRecordList">  
+                    <span class="multiStandardBlock" title="<$standardRecord.ValueList$>" onclick="selectMultiStandard('<$standardRecord.ProductID$>')"><$standardRecord.ValueList$></span>
+                    </html:foreach>
+                </div> 
+                </html:if>  
+                <div class="height10"></div> 
+                <div class="buy clear">                
+                <html:if expression="leftStorageCount>0">
+                <div>数量：<input type="text" class="input count" id="BuyCount" value="1" onblur="countPrice(this.value,<$leftStorageCount$>)" /> 小计：￥<span id="currentTotalMemberPrice"><$currentMemberPrice$></span>  <a href="javascript:collectProduct(<$product.ID$>)">收藏</a> </div><div><input class="bigbutton" value="放入购物车"  type="button" onclick="addToCart(<$product.ID$>,'<$product.Name$>',<$product.StandardType$>)"/>  <input class="bigbutton" value="立即购买"  type="button" onclick="buyNow(<$product.ID$>,'<$product.Name$>',<$product.StandardType$>)"/></div>
+                <html:else>
+                <div><input class="bigbutton" value="缺货登记"  type="button" onclick="bookingProduct(<$product.ID$>,'<$product.Name$>',<$product.StandardType$>)"/>  <a href="javascript:collectProduct(<$product.ID$>)">收藏</a></div>
+                </html:if>                
+                </div>
+            </div>
+            <div class="height10"></div>
+            <ul class="productPageTag">
+                <li class="productOn" onclick="show('Introduce')" id="titleIntroduce">商品介绍</li>
+                <li class="productOff" onclick="show('Accessory')" id="titleAccessory">赠送配件</li>
+                <li class="productOff" onclick="show('RelationProduct')" id="titleRelationProduct">关联产品</li>
+            </ul>
+            <div class="productDetailTitle"></div>
+            <div class="height10"></div>
+            <div class="productIntroduce" id="productIntroduce">
+                <html:if expression="attributeRecordList.Count>0">
+                <ul class="productAttribute">
+                    <html:foreach expression="AttributeRecordInfo attributeRecord in attributeRecordList">
+                    <li><$AttributeBLL.ReadAttributeCache(attributeRecord.AttributeID).Name$>：<$attributeRecord.Value$></li>
+                    </html:foreach>
+                </ul>
+                </html:if>
+                <div class="height10"></div>
+                <div class="productContent"><$product.Introduction$></div>
+            </div>
+            <div class="productAccessory" id="productAccessory" style="display:none">
+                <html:if expression="product.Accessory!=string.Empty">
+                <ul>
+                    <html:foreach expression="string temp in product.Accessory.Split(',')">
+                    <html:csharp>ProductInfo tempProduct=ProductBLL.ReadProductByProductList(tempProductList,Convert.ToInt32(temp));</html:csharp>
+                    <li><a href="/ProductDetail-I<$tempProduct.ID$>.aspx" class="photo"><img src="<$tempProduct.Photo.Replace("Original","120-120")$>" onload="photoLoad(this,120,120)" /></a><br /><a href="/ProductDetail-I<$tempProduct.ID$>.aspx"><$tempProduct.Name$></a></li>
+                    </html:foreach>
+                </ul>
+                </html:if>
+            </div>
+            <div class="productAccessory" id="productRelationProduct" style="display:none">
+                <html:if expression="product.RelationProduct!=string.Empty">
+                <ul>
+                    <html:foreach expression="string temp in product.RelationProduct.Split(',')">
+                    <html:csharp>ProductInfo tempProduct=ProductBLL.ReadProductByProductList(tempProductList,Convert.ToInt32(temp));</html:csharp>
+                    <li><a href="/ProductDetail-I<$tempProduct.ID$>.aspx" class="photo"><img src="<$tempProduct.Photo.Replace("Original","120-120")$>" onload="photoLoad(this,120,120)" /></a><br /><a href="/ProductDetail-I<$tempProduct.ID$>.aspx"><$tempProduct.Name$></a></li>
+                    </html:foreach>
+                </ul>
+                </html:if>
+            </div>
+            <html:if expression="product.AllowComment==(int)BoolType.True">
+            <div class="height10"></div>
+            <div class="productCommentTitle"> 网友点评</div>
+            <div id="ProductCommentAjax"></div>            
+            <div class="postComment">
+                <ul>
+                    <li>评分：
+                        <html:for init="int i=1" condtion="i<6" expression="i++">
+                        <input type="radio" name="rank" value="<$i$>" /><html:for init="int k=1" condtion="k<=i" expression="k++"><img src="<html:templatePath>/Style/Images/s1.gif" /></html:for><html:for init="int m=i+1" condtion="m<=5" expression="m++"><img src="<html:templatePath>/Style/Images/s0.gif" /></html:for>
+                        </html:for>
+                    </li>
+                    <li class="title">标题：<input type="text" class="input"  id="title"/></li>
+                    <li>内容：不要发表违规信息，请自觉遵守互联网相关政策法规。 <textarea  id="content" class="input"></textarea></li>
+                    <div class="height10"></div>
+                    <li><input type="button" class="button" value="发表" onclick="postComment()" /></li>
+                </ul>
+            </div>
+            </html:if>
+        </div>
+    </div>
+    <div class="toTop"><a href="#"><img src="<html:templatePath>/Style/Images/top.jpg" alt="回顶部" /></a></div>
+    <html:include file="Foot.htm" />  
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/Scroll.js" ></script>
+    <script language="javascript" type="text/javascript" src="<html:templatePath>/Js/ProductDetail.js" ></script>
+    <script language="javascript">
+        var productID=<$product.ID$>;
+        pageInit(<$product.AllowComment$>);
+    </script> 
+    <script type="text/javascript" src="http://v2.jiathis.com/code/jia.js" charset="utf-8"></script>
+</body>
+</html>

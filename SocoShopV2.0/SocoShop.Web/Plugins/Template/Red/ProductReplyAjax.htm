@@ -1,0 +1,37 @@
+﻿<html:namespace name="SocoShop.Entity" />
+<html:namespace name="SocoShop.Business" />
+<html:namespace name="SocoShop.Common" />
+<html:namespace name="SkyCES.EntLib" />
+<div class="height10"></div>
+<html:foreach expression="ProductReplyInfo productReply in productReplyList">
+<div class="productComment">
+    <ul class="userInfo">
+        <html:if expression="productReply.UserID>0">
+        <html:csharp>
+            UserInfo tempUser=UserBLL.ReadUserByUserList(userList,productReply.UserID);
+            string userPhoto = tempUser.Photo;
+            if (userPhoto == string.Empty)
+            {
+                userPhoto = "/Plugins/Template/" + ShopConfig.ReadConfigInfo().TemplatePath + "/Style/Images/NoImage.gif";
+            }
+            else
+            {
+                userPhoto = userPhoto.Replace("Original", "70-70");
+            }
+        </html:csharp>
+        <li class="photo"><img src="<$userPhoto$>"  onload="photoLoad(this,70,70)"/></li>
+        <li class="name"><$productReply.UserName$></li>
+        <li><a href="javascript:addFriend(<$productReply.UserID$>)"><img src="<html:templatePath>/style/images/addFriend.gif" /> 加为好友</a></li>
+        <html:else>
+        <li class="photo"><img src="<html:templatePath>/Style/Images/NoImage.gif" onload="photoLoad(this,70,70)" /></li>
+        <li class="name">匿名用户</li>
+        </html:if>
+    </ul>
+    <ul class="commentContent">
+       <li><$productReply.Content$></li>
+    </ul>
+</div>
+<div class="height10"></div>
+</html:foreach>
+<$ajaxPagerClass.ShowPage()$>
+<div class="height10"></div>
