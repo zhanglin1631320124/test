@@ -1,8 +1,0 @@
-User-agent: * 
-Disallow: /admin/
-Disallow: /emailcontent/
-Disallow: /log/
-Disallow: /ashx/
-Disallow: /config/
-
-
